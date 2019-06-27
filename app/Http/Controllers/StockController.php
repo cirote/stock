@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use ccxt\okex;
-use Illuminate\Http\Request;
+use App\Models\Exchanges\okex;
 
 class StockController extends Controller
 {
-    public function index()
+	public function index()
     {
-    	$okex = new okex();
+    	$exchange = Okex::create();
 
-    	$okex->load_markets();
+    	$entre = 'USDT';
+    	$y = 'ETH';
+		$exchange->arbitrar($entre, $y);
 
-    	dd($okex);
-
-    	die;
-
+	    die();
     }
 }
