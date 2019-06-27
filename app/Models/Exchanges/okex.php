@@ -78,4 +78,11 @@ class okex extends baseOkex
 			echo "Convierto $e2 $atravesDe en $e3 $entre <br><br>";
 		}
 	}
+
+	public function fetch_exchange_info()
+	{
+		$url = 'https://www.okex.com/api/spot/v3/instruments/ticker';
+
+		return json_decode(file_get_contents($url), true);
+	}
 }

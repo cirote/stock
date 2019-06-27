@@ -10,6 +10,9 @@ class StockController extends Controller
     {
     	$exchange = Okex::create();
 
+    	var_dump($exchange->fetch_exchange_info());
+
+    	die;
     	$entre = 'USDT';
     	$y = 'ETH';
 		$exchange->arbitrar($entre, $y);
