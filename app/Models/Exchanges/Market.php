@@ -24,7 +24,7 @@ class Market extends Model
 		$this->y = $y;
 
 		$this->symbol = "$entre/$y";
-		if (isset($this->exchange->markets[$this->symbol])) {
+		if (isset($this->exchange->mercados[$this->symbol])) {
 			$this->invertido = false;
 		} else {
 			$this->symbol = "$y/$entre";
@@ -44,30 +44,26 @@ class Market extends Model
 
 	public function getBidAttribute()
 	{
-		$ob = $this->orderBook;
+        $ob = $this->exchange->mercados;
+        $ob = $ob[$this->symbol];
 
 		return $this->invertido
-			? [
-				1 / $ob['asks'][0][0],
-				$ob['asks'][0][1] / $ob['asks'][0][0]
-			]
-			: $ob['bids'][0];
+			? $ob['ask'] ? 1 / $ob['ask'] : -1
+			: $ob['bid'];
 	}
 
 	public function getAskAttribute()
 	{
-		$ob = $this->orderBook;
+        $ob = $this->exchange->mercados;
+        $ob = $ob[$this->symbol];
 
 		return $this->invertido
-			? [
-				1 / $ob['bids'][0][0],
-				$ob['bids'][0][1] / $ob['bids'][0][0]
-			]
-			: $this->ob['asks'][0];
+			? $ob['bid'] ? 1 / $ob['bid'] : -1
+			: $ob['ask'];
 	}
 
 	public function convertir($cantidad = 1)
 	{
-		return $cantidad * $this->bid[0] * (1 - 0.0015);
+		return $cantidad * $this->bid * (1 - 0.0015);
 	}
 }

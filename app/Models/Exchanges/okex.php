@@ -6,6 +6,9 @@ use ccxt\okex as baseOkex;
 
 class okex extends baseOkex
 {
+    protected $datos_brutos;
+    public $mercados;
+
 	public static function create()
 	{
 		$exchange = new static([
@@ -13,14 +16,11 @@ class okex extends baseOkex
 			'secret' => env('OKEX_SECRET')
 		]);
 
-		$exchange->load_markets();
-
 		return $exchange;
 	}
 
 	public function arbitrage_options($entre = 'BTC', $y = 'ETH')
 	{
-		return ['AAC', 'BTC'];
 		return $this->currency_trade($entre)
 			->intersect($this->currency_trade($y));
 	}
@@ -28,8 +28,8 @@ class okex extends baseOkex
 	public function currency_trade(string $currency)
 	{
 		$currencies = array_merge(
-			collect($this->markets)->where('quote', $currency)->pluck('base')->all(),
-			collect($this->markets)->where('base', $currency)->pluck('quote')->all()
+			collect($this->mercados)->where('quote', $currency)->pluck('base')->all(),
+			collect($this->mercados)->where('base', $currency)->pluck('quote')->all()
 		);
 
 		sort($currencies);
@@ -39,19 +39,14 @@ class okex extends baseOkex
 
 	public function arbitrar($entre, $y)
 	{
-		$a = 0;
-
 		foreach ($this->arbitrage_options($entre, $y) as $atravesDe) {
-			if($a++ < 12)
-			{
-				$this->arbitrajeEspejo($entre, $y, $atravesDe);
-			}
+		    $this->arbitrajeEspejo($entre, $y, $atravesDe);
 		}
 	}
 
 	public function arbitrajeEspejo($entre, $y, $atravesDe)
 	{
-		echo "Oportunidades de arbitraje entre $entre y $y a traves de $atravesDe <br><br>";
+		echo "Oportunidades de arbitraje entre $entre y $y a traves de $atravesDe \n";
 
 		$this->arbitraje($entre, $y, $atravesDe);
 
@@ -72,10 +67,10 @@ class okex extends baseOkex
 		$e2 = $market2->convertir($e1);
 		$e3 = $market3->convertir($e2);
 
-		if ($e3 > 0) {
-			echo "Convierto 1 $entre en $e1 $y <br>";
-			echo "Convierto $e1 $y en $e2 $atravesDe <br>";
-			echo "Convierto $e2 $atravesDe en $e3 $entre <br><br>";
+		if ($e3 > 1) {
+			echo "Convierto 1 $entre en $e1 $y \n";
+			echo "Convierto $e1 $y en $e2 $atravesDe \n";
+			echo "Convierto $e2 $atravesDe en $e3 $entre \n";
 		}
 	}
 
@@ -83,6 +78,29 @@ class okex extends baseOkex
 	{
 		$url = 'https://www.okex.com/api/spot/v3/instruments/ticker';
 
-		return json_decode(file_get_contents($url), true);
+		$this->datos_brutos = json_decode(file_get_contents($url));
 	}
+
+    public function fetch_mercados()
+    {
+        $this->mercados = [];
+
+        foreach ($this->datos_brutos as $dato) {
+
+            list($entre, $y) = explode('-', $dato->instrument_id);
+
+            $ticker = "$entre/$y";
+
+            $this->mercados[$ticker] = [
+                'quote' => $entre,
+                'base' => $y,
+                'bid' => $dato->best_bid * 1.0,
+                'ask' => $dato->best_ask * 1.0,
+            ];
+        }
+    }
+
+    public function getMMercadosAttribute() {
+	    return $this->mercados;
+    }
 }
