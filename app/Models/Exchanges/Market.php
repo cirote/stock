@@ -8,7 +8,16 @@ class Market extends Model
 {
 	public static function create($exchange, $entre, $y)
 	{
-		return new static($exchange, $entre, $y);
+		$symbol = "$entre/$y";
+		if (isset($exchange->mercados[$symbol])) {
+			return new static($exchange, $entre, $y, $symbol, false);
+		}
+		$symbol = "$y/$entre";
+		if (isset($exchange->mercados[$symbol])) {
+			return new static($exchange, $entre, $y, $symbol, true);
+		}
+
+		return null;
 	}
 
 	protected $exchange;
@@ -17,19 +26,13 @@ class Market extends Model
 	protected $invertido;
 	protected $symbol;
 
-	public function __construct($exchange, $entre, $y)
+	public function __construct($exchange, $entre, $y, $symbol, $invertido)
 	{
 		$this->exchange = $exchange;
 		$this->entre = $entre;
 		$this->y = $y;
-
-		$this->symbol = "$entre/$y";
-		if (isset($this->exchange->mercados[$this->symbol])) {
-			$this->invertido = false;
-		} else {
-			$this->symbol = "$y/$entre";
-			$this->invertido = true;
-		}
+		$this->symbol = $symbol;
+		$this->invertido = $invertido;
 	}
 
 	public function getSymbolAttribute()

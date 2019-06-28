@@ -37,6 +37,23 @@ class okex extends baseOkex
 		return collect($currencies)->unique();
 	}
 
+	public function currencies()
+	{
+		$currencies = array_merge(
+			collect($this->mercados)->pluck('base')->all(),
+			collect($this->mercados)->pluck('quote')->all()
+		);
+
+		sort($currencies);
+
+		return collect($currencies)->unique()->all();
+	}
+
+	public function refer_currencies()
+	{
+		return ['BTC', 'ETH', 'USDT', 'USDK', 'OKB'];
+	}
+
 	public function arbitrar($entre, $y)
 	{
 		foreach ($this->arbitrage_options($entre, $y) as $atravesDe) {
@@ -53,9 +70,12 @@ class okex extends baseOkex
 
 	public function arbitraje($entre, $y, $atravesDe)
 	{
-		$market1 = Market::create($this, $entre, $y);
-		$market2 = Market::create($this, $y, $atravesDe);
-		$market3 = Market::create($this, $atravesDe, $entre);
+		if (! $market1 = Market::create($this, $entre, $y))
+			return;
+		if (! $market2 = Market::create($this, $y, $atravesDe))
+			return;
+		if (! $market3 = Market::create($this, $atravesDe, $entre))
+			return;
 
 //		dump($market1);
 //		dump($market1->bid);
@@ -65,7 +85,7 @@ class okex extends baseOkex
 		$e2 = $market2->convertir($e1);
 		$e3 = $market3->convertir($e2);
 
-		if ($e3 > 1) {
+		if ($e3 >= 1.001) {
             echo "\nOportunidades de arbitraje entre $entre y $y a traves de $atravesDe \n";
             echo " - Convierto 1 $entre en $e1 $y \n";
 			echo " - Convierto $e1 $y en $e2 $atravesDe \n";
