@@ -45,26 +45,31 @@ class arbitrar extends Command
         $exchange = Okex::create();
         $this->tiempo($a, 'Creacion del exchange');
 
-        $a = $this->tiempo();
-        $exchange->fetch_exchange_info();
-        $this->tiempo($a, 'Lectura de datos del webservice');
+        while (true) {
 
-        $a = $this->tiempo();
-        $exchange->fetch_mercados();
-        $this->tiempo($a, 'Conversion de los datos');
+            $ar = ['ETH', 'BTC', 'USDT', 'OKB', 'XRP'];
 
-        $ar = ['BTC', 'LTC', 'USDT', 'OKB', 'XRP', 'EOS'];
-        $br = ['ETH', 'BTC', 'LTC', 'USDT', 'BCH', 'OKB', 'XRP', 'EOS'];
-
-        foreach ($ar as $entre) {
             $a = $this->tiempo();
-            $y = 'ETH';
-            $exchange->arbitrar($entre, $y);
-            $this->tiempo($a, "Opciones de arbitraje de $entre");
+            $exchange->fetch_exchange_info();
+            $this->tiempo($a, 'Lectura de datos del webservice');
+
+            $a = $this->tiempo();
+            $exchange->fetch_mercados();
+            $this->tiempo($a, 'Conversion de los datos');
+
+            while (count($ar) > 2) {
+
+                $entre = array_shift($ar);
+
+                foreach ($ar as $y) {
+                    $a = $this->tiempo();
+                    $exchange->arbitrar($entre, $y);
+                    $this->tiempo($a, "Fueron las opciones de arbitraje de $entre");
+                }
+            }
+            $this->info('');
+            sleep(15);
         }
-
-
-        $this->info('');
 
         die();
     }

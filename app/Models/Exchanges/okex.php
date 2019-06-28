@@ -66,10 +66,10 @@ class okex extends baseOkex
 		$e3 = $market3->convertir($e2);
 
 		if ($e3 > 1) {
-            echo "\nOportunidades de arbitraje entre $entre y $y a traves de $atravesDe \n\n";
-            echo "Convierto 1 $entre en $e1 $y \n";
-			echo "Convierto $e1 $y en $e2 $atravesDe \n";
-			echo "Convierto $e2 $atravesDe en $e3 $entre \n";
+            echo "\nOportunidades de arbitraje entre $entre y $y a traves de $atravesDe \n";
+            echo " - Convierto 1 $entre en $e1 $y \n";
+			echo " - Convierto $e1 $y en $e2 $atravesDe \n";
+			echo " - Convierto $e2 $atravesDe en $e3 $entre \n";
 		}
 	}
 
