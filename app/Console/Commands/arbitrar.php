@@ -53,16 +53,16 @@ class arbitrar extends Command
         $exchange->fetch_mercados();
         $this->tiempo($a, 'Conversion de los datos');
 
-        $a = $this->tiempo();
-        $exchange->currency_trade( 'ETH');
-        $this->tiempo($a, 'Listar las monedas con las que se puede comercializar');
+        $ar = ['BTC', 'LTC', 'USDT', 'OKB', 'XRP', 'EOS'];
+        $br = ['ETH', 'BTC', 'LTC', 'USDT', 'BCH', 'OKB', 'XRP', 'EOS'];
 
+        foreach ($ar as $entre) {
+            $a = $this->tiempo();
+            $y = 'ETH';
+            $exchange->arbitrar($entre, $y);
+            $this->tiempo($a, "Opciones de arbitraje de $entre");
+        }
 
-        $a = $this->tiempo();
-        $entre = 'USDT';
-        $y = 'ETH';
-        $exchange->arbitrar($entre, $y);
-        $this->tiempo($a, 'Opciones de arbitraje');
 
         $this->info('');
 
@@ -77,10 +77,10 @@ class arbitrar extends Command
 
         if ($control) {
             $d = ($a - $control);
-            $this->info('');
-            $this->info($titulo);
-            $this->line('Duracion del proceso ' . number_format($d, 6) . ' ');
-            return $d;
+//            $this->info('');
+//            $this->info($titulo);
+//            $this->line('Duracion del proceso ' . number_format($d, 6) . ' ');
+              return $d;
         }
 
         return $a;
