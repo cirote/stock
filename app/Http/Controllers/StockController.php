@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exchanges\okex;
+use App\Models\Exchanges\Okex;
 
 class StockController extends Controller
 {
 	public function index()
     {
+
     	$exchange = Okex::create();
 
-    	var_dump($exchange->fetch_exchange_info());
+    	dd($exchange->activos('OKB'));
 
     	die;
     	$entre = 'USDT';

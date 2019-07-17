@@ -3,20 +3,19 @@
 namespace App\Models\Exchanges;
 
 use ccxt\okex as baseOkex;
+use Illuminate\Support\Arr;
 
-class okex extends baseOkex
+class Okex extends baseOkex
 {
     protected $datos_brutos;
     public $mercados;
 
 	public static function create()
 	{
-		$exchange = new static([
+		return new static([
 			'apiKey' => env('OKEX_API_KEY'),
 			'secret' => env('OKEX_SECRET')
 		]);
-
-		return $exchange;
 	}
 
 	public function arbitrage_options($entre = 'BTC', $y = 'ETH')
@@ -93,33 +92,46 @@ class okex extends baseOkex
 		}
 	}
 
-	public function fetch_exchange_info()
+	public function fetch_markets_info()
 	{
 		$url = 'https://www.okex.com/api/spot/v3/instruments/ticker';
 
-		$this->datos_brutos = json_decode(file_get_contents($url));
+		return json_decode(file_get_contents($url));
 	}
 
-    public function fetch_mercados()
+    public function get_mercados()
     {
         $this->mercados = [];
 
-        foreach ($this->datos_brutos as $dato) {
+        foreach ($this->fetch_markets_info() as $market) {
 
-            list($entre, $y) = explode('-', $dato->instrument_id);
+            list($entre, $y) = explode('-', $market->instrument_id);
 
             $ticker = "$entre/$y";
 
             $this->mercados[$ticker] = [
-                'quote' => $entre,
+                'activo' => $entre,
                 'base' => $y,
-                'bid' => $dato->best_bid * 1.0,
-                'ask' => $dato->best_ask * 1.0,
+                'bid' => $market->best_bid * 1.0,
+                'ask' => $market->best_ask * 1.0,
             ];
         }
+
+        return $this->mercados;
     }
 
-    public function getMMercadosAttribute() {
-	    return $this->mercados;
+    public function bases()
+    {
+	    return array_unique(Arr::pluck($this->get_mercados(), 'base'));
     }
+
+	public function activos($base)
+	{
+		$filtered = Arr::where($this->get_mercados(), function ($value) use ($base) {
+			return $value['base'] == $base;
+		});
+
+		return array_unique(Arr::pluck($filtered, 'activo'));
+	}
+
 }
