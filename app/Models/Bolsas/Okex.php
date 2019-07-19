@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Exchanges;
+namespace App\Models\Bolsas;
 
 use ccxt\okex as baseOkex;
 use Illuminate\Support\Arr;

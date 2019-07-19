@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Exchanges\okex;
+use App\Models\Bolsas\Okex;
 use Illuminate\Console\Command;
 
 class arbitrar extends Command

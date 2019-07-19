@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Exchanges;
+namespace App\Models\Bolsas;
 
 use Illuminate\Database\Eloquent\Model;
 
