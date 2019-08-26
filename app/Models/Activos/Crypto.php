@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Models\Activos\CriptoMonedas;
+namespace App\Models\Activos;
 
-use App\Models\Activos\Monedas\Moneda;
 use App\Models\Mercados\Mercado;
 use Tightenco\Parental\HasParent;
 
-class Cripto extends Moneda
+class Crypto extends Moneda
 {
-    use HasParent;
-
     private $mercado;
 
     public function mercado(Moneda $base)

@@ -10,7 +10,8 @@ class CreateActivosTable extends Migration
     {
         Schema::create('activos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre')->index()->unique();
+            $table->string('denominacion')->index()->unique();
+            $table->string('clase')->nullable();
             $table->string('type')->nullable();
             $table->timestamps();
         });

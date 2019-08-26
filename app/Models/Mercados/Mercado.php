@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mercado extends Model
 {
+
+
+
+    /*
+     * Revisar de aqui para abajo
+     */
+
     protected $activo;
     protected $base;
 

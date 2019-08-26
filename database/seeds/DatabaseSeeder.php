@@ -6,6 +6,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(ActivosTableSeeder::class);
+        $this->call(MonedasTableSeeder::class);
+        $this->call(CryptoTableSeeder::class);
+        $this->call(AccionesTableSeeder::class);
+        $this->call(BonosTableSeeder::class);
+        $this->call(BolsasTableSeeder::class);
+
+ //       $this->call(HistoricosTableSeeder::class);
     }
 }
