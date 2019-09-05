@@ -15,14 +15,15 @@ class CreateHistoricosTable extends Migration
     {
         Schema::create('historicos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('activo_id')->unsigned()->refers('id')->on('activos');
-            $table->integer('moneda_id')->unsigned()->refers('id')->on('activos');
-            $table->date('fecha');
+            $table->integer('activo_id')->index()->unsigned()->refers('id')->on('activos');
+            $table->integer('mercado_id')->index()->unsigned()->refers('id')->on('mercados');
+            $table->integer('moneda_id')->index()->unsigned()->refers('id')->on('activos');
+            $table->date('fecha')->index();
             $table->double('apertura');
             $table->double('maximo');
             $table->double('minimo');
             $table->double('cierre');
-            $table->double('volumen');
+            $table->double('volumen')->default(0);
             $table->double('interes_abierto');
             $table->timestamps();
         });

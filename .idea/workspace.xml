@@ -2,37 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Activos/Accion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Activos/Bono.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Bolsa.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Mercado.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_07_18_186232_create_bolsas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_07_18_186232_create_mercados_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_07_18_186236_create_activos_mercados_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_07_19_186232_create_historicos_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/BolsasTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/BonosTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/CryptoTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/HistoricosTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/MercadosTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/MonedasTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stock.ai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stock.ai.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Broker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Operacion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_020440_create_brokers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/BrokerTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/OperacionesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Activo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Activo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/CriptoMonedas/Cripto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Crypto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Monedas/Moneda.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Ticker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Ticker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Mercados/Mercado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mercados/Mercado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_18_181430_create_activos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_18_181430_create_activos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Historico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_19_186232_create_historicos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_19_186232_create_historicos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/clockwork/.gitignore" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +199,9 @@
       <workItem from="1566686607537" duration="1967000" />
       <workItem from="1566688747784" duration="4354000" />
       <workItem from="1566693891260" duration="1317000" />
-      <workItem from="1566777942667" duration="8624000" />
+      <workItem from="1566777942667" duration="9871000" />
+      <workItem from="1567115703127" duration="85000" />
+      <workItem from="1567644038542" duration="4487000" />
     </task>
     <servers />
   </component>
