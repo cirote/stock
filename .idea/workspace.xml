@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Broker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Operacion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_020440_create_brokers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/BrokerTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/OperacionesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/prueba.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bolsa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bolsa.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Historico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_19_186232_create_historicos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_19_186232_create_historicos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Mercado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mercado.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BolsasTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BolsasTableSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,14 +143,16 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models/Activos" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database/seeds" />
       <recent name="$PROJECT_DIR$/app/Models/Activos" />
       <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/app/Models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs" />
+      <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA" />
+      <recent name="$PROJECT_DIR$/app/Models/Activos" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -201,7 +201,7 @@
       <workItem from="1566693891260" duration="1317000" />
       <workItem from="1566777942667" duration="9871000" />
       <workItem from="1567115703127" duration="85000" />
-      <workItem from="1567644038542" duration="4487000" />
+      <workItem from="1567644038542" duration="14684000" />
     </task>
     <servers />
   </component>

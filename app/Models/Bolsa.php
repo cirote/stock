@@ -28,7 +28,6 @@ class Bolsa extends Model
 
         foreach ($activos as $ticker)
         {
-
             $activo = Activo::byTicker($ticker);
 
             $mercado->activos()->save($activo);

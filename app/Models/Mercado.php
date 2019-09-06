@@ -11,6 +11,16 @@ class Mercado extends Model
         return static::where('nombre', $name)->first();
     }
 
+    public function bolsa()
+    {
+        return $this->belongsTo(Bolsa::class);
+    }
+
+    public function moneda()
+    {
+        return $this->belongsTo(Moneda::class);
+    }
+
     public function activos()
     {
         return $this->belongsToMany(Activo::class);

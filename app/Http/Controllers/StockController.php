@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activos\Activo;
+use App\Models\Activos\Moneda;
 use App\Models\Activos\Historico;
 use App\Models\Bolsas\Okex;
 
@@ -10,7 +10,9 @@ class StockController extends Controller
 {
 	public function index()
     {
-        Historico::migrar();
+        return view('prueba');
+
+        dd(Moneda::makePesosPorDolar()->get());
     }
 
 //    public function index()

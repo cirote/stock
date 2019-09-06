@@ -11,7 +11,7 @@ class BolsasTableSeeder extends Seeder
             'nombre' => 'Bolsa de Comercio de Buenos Aires',
             'sigla'  => 'BCBA'
         ])
-            ->agregarMercado('BCBA 48 hs', '$', 'APBR', 'TXAR', 'SAN', 'AY24')
+            ->agregarMercado('BCBA 48 hs', '$', 'APBR', 'TXAR', 'TS', 'SAN', 'AY24')
             ->agregarMercado('Contado con liquidacion', 'USD', 'AY24C')
             ->agregarMercado('Dolar MEP', 'USD', 'AY24D');
 
@@ -19,7 +19,7 @@ class BolsasTableSeeder extends Seeder
             'nombre' => 'New York Stock Exchange',
             'sigla'  => 'NYSE'
         ])
-            ->agregarMercado('NYSE', 'USD', 'PBR', 'SAN');
+            ->agregarMercado('NYSE', 'USD', 'TS', 'PBR', 'SAN');
 
         Bolsa::create([
             'nombre' => 'OKEx',
