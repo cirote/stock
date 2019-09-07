@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/prueba.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Activos/Real.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/activo/ccl.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Bolsa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bolsa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Accion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Accion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Historico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Mercado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mercado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AccionesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BolsasTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BolsasTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,23 +134,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/seeds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models/Activos" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/database/seeds" />
-      <recent name="$PROJECT_DIR$/app/Models/Activos" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/app/Models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs" />
       <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA" />
       <recent name="$PROJECT_DIR$/app/Models/Activos" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Models/Activos" />
+      <recent name="$PROJECT_DIR$/database/seeds" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,6 +200,7 @@
       <workItem from="1566777942667" duration="9871000" />
       <workItem from="1567115703127" duration="85000" />
       <workItem from="1567644038542" duration="14684000" />
+      <workItem from="1567809493114" duration="4658000" />
     </task>
     <servers />
   </component>

@@ -23,11 +23,6 @@ class Historico extends Model
                 static::migrarActivo($activo, $mercado);
             }
         }
-
-//        foreach(Accion::all() as $activo)
-//        {
-//            static::migrarActivo($activo->ticker);
-//        }
     }
 
     static public function migrarActivo(Activo $activo, Mercado $mercado)
@@ -90,5 +85,18 @@ class Historico extends Model
         }
 
         return $number;
+    }
+
+
+    public function toGraph()
+    {
+        return [
+            $this->fecha->timestamp * 1000,
+            $this->apertura,
+            $this->maximo,
+            $this->minimo,
+            $this->cierre,
+            $this->volumen
+        ];
     }
 }
