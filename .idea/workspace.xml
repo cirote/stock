@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Activos/Real.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/activo/ccl.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Accion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Accion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Historico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/prueba.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/APBR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/TS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/TXAR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/Dolar MEP/DICYD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/stock/historico/NYSE/NYSE/TS.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +199,8 @@
       <workItem from="1566777942667" duration="9871000" />
       <workItem from="1567115703127" duration="85000" />
       <workItem from="1567644038542" duration="14684000" />
-      <workItem from="1567809493114" duration="4658000" />
+      <workItem from="1567809493114" duration="5379000" />
+      <workItem from="1567995591993" duration="644000" />
     </task>
     <servers />
   </component>
