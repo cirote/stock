@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activos\Accion;
 use App\Models\Activos\Activo;
 use App\Models\Activos\Moneda;
 use App\Models\Activos\Historico;
@@ -12,7 +13,8 @@ class StockController extends Controller
 {
 	public function index()
     {
-        return view('prueba');
+        return view('home.index')
+            ->withActivos(Accion::all());
 
         dd(Moneda::makePesosPorDolar()->get());
     }

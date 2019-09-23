@@ -2,13 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Deposito.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Operacion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/AdminLTE.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/AdminLTE.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-black-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-black-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-black.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-black.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-blue-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-blue-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-blue.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-green-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-green-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-green.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-purple-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-purple-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-purple.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-red-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-red-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-red.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-yellow-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-yellow-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/css/skins/skin-yellow.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/js/adminlte.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/dist/js/adminlte.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/css/ionicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/css/ionicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/Ionicons/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/css/all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/css/fontawesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/font-awesome/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/icheck-bootstrap/icheck-bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/jquery/dist/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/jquery/dist/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/activo/lista.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stock.ai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stock.ai.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/APBR.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/TS.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs/TXAR.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/stock/historico/BCBA/Dolar MEP/DICYD.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/stock/historico/NYSE/NYSE/TS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Broker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Broker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/OperacionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/OperacionesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,6 +200,11 @@
       <path value="$PROJECT_DIR$/vendor/pear/console_table" />
       <path value="$PROJECT_DIR$/vendor/tightenco/parental" />
       <path value="$PROJECT_DIR$/vendor/league/csv" />
+      <path value="$PROJECT_DIR$/vendor/jeroennoten/laravel-adminlte" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
     </include_path>
   </component>
   <component name="ProjectId" id="1PtDFdcQMZGYqf8ymbUGZho3VR6" />
@@ -201,6 +283,10 @@
       <workItem from="1567644038542" duration="14684000" />
       <workItem from="1567809493114" duration="5379000" />
       <workItem from="1567995591993" duration="644000" />
+      <workItem from="1568464580283" duration="16000" />
+      <workItem from="1569020630368" duration="1545000" />
+      <workItem from="1569022801090" duration="5189000" />
+      <workItem from="1569194608613" duration="3136000" />
     </task>
     <servers />
   </component>

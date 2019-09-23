@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BolsasTableSeeder::class);
         $this->call(BrokerTableSeeder::class);
         $this->call(HistoricosTableSeeder::class);
+        $this->call(OperacionesTableSeeder::class);
     }
 }

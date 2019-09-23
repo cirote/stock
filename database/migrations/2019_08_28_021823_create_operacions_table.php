@@ -6,26 +6,23 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateOperacionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('operacions', function (Blueprint $table) {
+        Schema::create('operaciones', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('clase')->nullable();
+            $table->string('type')->nullable();
+            $table->date('fecha');
+            $table->string('descripcion');
+            $table->bigInteger('cantidad');
+            $table->decimal('precio');
+            $table->decimal('importe');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('operacions');
+        Schema::dropIfExists('operaciones');
     }
 }
