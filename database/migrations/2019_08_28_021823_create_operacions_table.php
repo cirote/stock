@@ -13,9 +13,10 @@ class CreateOperacionsTable extends Migration
             $table->string('clase')->nullable();
             $table->string('type')->nullable();
             $table->date('fecha');
-            $table->string('descripcion');
-            $table->bigInteger('cantidad');
-            $table->decimal('precio');
+            $table->bigInteger('activo_id')->refers('id')->on('activos')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->bigInteger('cantidad')->nullable();
+            $table->decimal('precio')->nullable();
             $table->decimal('importe');
             $table->timestamps();
         });

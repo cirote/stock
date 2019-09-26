@@ -21,7 +21,12 @@ class Activo extends Model
      */
     static public function byTicker($ticker)
     {
-        return Ticker::byName($ticker)->activo;
+        $tickerGuardado = Ticker::byName($ticker);
+
+        if ($tickerGuardado)
+            return $tickerGuardado->activo;
+
+        return null;
     }
 
     public function tickers()
