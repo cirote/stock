@@ -2,6 +2,9 @@
 
 namespace App\Models\Activos;
 
+use App\Models\Operaciones\Compra;
+use App\Models\Operaciones\Operacion;
+use App\Models\Operaciones\Venta;
 use Illuminate\Database\Eloquent\Model;
 use Tightenco\Parental\HasChildren;
 
@@ -52,7 +55,37 @@ class Activo extends Model
      * Funciones con las bolsas
      */
 
+    public function operaciones()
+    {
+        return $this->hasMany(Operacion::class, 'activo_id');
+    }
 
+    private $cantidad_de_activos;
+
+    public function getCantidadAttribute()
+    {
+        static $cantidad_de_activos = 0;
+
+        if (! $this->cantidad_de_activos)
+        {
+            $this->cantidad_de_activos = 0;
+
+            foreach ($this->operaciones as $operacion)
+            {
+                if ($operacion instanceof Compra)
+                {
+                    $this->cantidad_de_activos += $operacion->cantidad;
+                }
+
+                if ($operacion instanceof Venta)
+                {
+                    $this->cantidad_de_activos -= $operacion->cantidad;
+                }
+            }
+        }
+
+        return $this->cantidad_de_activos;
+    }
 
 
 }

@@ -14,7 +14,7 @@ class StockController extends Controller
 	public function index()
     {
         return view('home.index')
-            ->withActivos(Accion::all());
+            ->withActivos(Activo::all());
 
         dd(Moneda::makePesosPorDolar()->get());
     }

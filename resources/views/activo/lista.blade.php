@@ -10,16 +10,18 @@
             <table class="table table-condensed">
                 <tbody>
                 <tr>
+                    <th>Ticker</th>
                     <th>Activo</th>
-                    <th>Task</th>
-                    <th>Progress</th>
+                    <th>Cantidad</th>
                 </tr>
                 @foreach($activos as $activo)
+                    @if(! $activo instanceof \App\Models\Activos\Moneda)
                     <tr role="row" class="even">
+                        <td>{{ $activo->ticker }}</td>
                         <td>{{ $activo->denominacion }}</td>
-                        <td>Mozilla 1.0</td>
-                        <td>Win 95+ / OSX.1+</td>
+                        <td align="right">{{ number_format($activo->cantidad, 0, ',', '.') }}</td>
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>

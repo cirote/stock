@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Compra.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Venta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/Operaciones/OperacionesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Activos/Activo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Activo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Operacion.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Operaciones/Operacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Operaciones/Operacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BonosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BonosTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/OperacionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/Operaciones/PpiOperacionesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/activo/lista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/activo/lista.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,24 +142,24 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models/Operaciones" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/seeds/Operaciones" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models/Operaciones" />
-      <recent name="$PROJECT_DIR$/app/Models/Activos" />
-      <recent name="$PROJECT_DIR$/database/seeds" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/app/Models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA/BCBA 48 hs" />
       <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA" />
       <recent name="$PROJECT_DIR$/app/Models/Activos" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/seeds/Operaciones" />
+      <recent name="$PROJECT_DIR$/app/Models/Operaciones" />
+      <recent name="$PROJECT_DIR$/app/Models/Activos" />
+      <recent name="$PROJECT_DIR$/database/seeds" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -210,7 +216,8 @@
       <workItem from="1569022801090" duration="5189000" />
       <workItem from="1569194608613" duration="3136000" />
       <workItem from="1569377929397" duration="1651000" />
-      <workItem from="1569464403707" duration="5009000" />
+      <workItem from="1569464403707" duration="5604000" />
+      <workItem from="1569710789143" duration="7264000" />
     </task>
     <servers />
   </component>
