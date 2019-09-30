@@ -3,6 +3,7 @@
 namespace App\Models\Activos;
 
 use App\Models\Operaciones\Compra;
+use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Venta;
 use Illuminate\Database\Eloquent\Model;
@@ -57,7 +58,7 @@ class Activo extends Model
 
     public function operaciones()
     {
-        return $this->hasMany(Operacion::class, 'activo_id');
+        return $this->hasMany(Operacion::class, 'activo_id')->orderBy('fecha');
     }
 
     private $cantidad_de_activos;
@@ -81,6 +82,12 @@ class Activo extends Model
                 {
                     $this->cantidad_de_activos -= $operacion->cantidad;
                 }
+
+                if ($operacion instanceof EjercicioVendedor)
+                {
+                    $this->cantidad_de_activos -= $operacion->cantidad;
+                }
+
             }
         }
 

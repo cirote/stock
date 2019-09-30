@@ -21,6 +21,7 @@ class BonosTableSeeder extends Seeder
         ])
             ->agregarTicker('AC17')
             ->agregarTicker('AC17D')
-            ->agregarTicker('AC17C');
+            ->agregarTicker('AC17C')
+            ->agregarTicker('92610');
     }
 }

@@ -4,12 +4,12 @@ namespace App\Models\Operaciones;
 
 use Tightenco\Parental\HasParent;
 
-class Compra extends Operacion
+class EjercicioVendedor extends Operacion
 {
     use HasParent;
 
     public function getDescripcionAttribute()
     {
-        return 'Compra';
+        return 'Venta por ejercicio de opciones';
     }
 }

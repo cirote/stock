@@ -7,5 +7,7 @@
 @stop
 
 @section('content')
-    @include('activo.lista')
+    <div class="col-md-6">
+    @include('activo.componentes.lista')
+    </div>
 @stop

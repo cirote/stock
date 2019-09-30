@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activos\Accion;
 use App\Models\Activos\Activo;
 use App\Models\Activos\Moneda;
-use App\Models\Activos\Historico;
-use App\Models\Bolsas\Okex;
-use Illuminate\Support\Collection;
 
 class StockController extends Controller
 {
 	public function index()
     {
-        return view('home.index')
-            ->withActivos(Activo::all());
+        return view('activo.index')
+            ->withActivos(Activo::orderBy('denominacion')->get());
+    }
 
-        dd(Moneda::makePesosPorDolar()->get());
+    public function mayor(Activo $activo)
+    {
+        return view('activo.mayor')
+            ->withActivo($activo);
     }
 
     public function ccl(Activo $activo)
     {
         dd($activo->historico());
+
+        dd(Moneda::makePesosPorDolar()->get());
 
         return view('prueba')
             ->withActivo($activo);
