@@ -21,9 +21,9 @@ class StockController extends Controller
 
     public function ccl(Activo $activo)
     {
-        dd($activo->historico());
+        //dd($activo->historico());
 
-        dd(Moneda::makePesosPorDolar()->get());
+        dd(Moneda::cotizacion('2019-09-05'));
 
         return view('prueba')
             ->withActivo($activo);

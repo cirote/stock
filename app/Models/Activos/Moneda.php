@@ -2,6 +2,7 @@
 
 namespace App\Models\Activos;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Tightenco\Parental\HasParent;
 
@@ -28,5 +29,13 @@ class Moneda extends Activo
             ->joinSub($enPesos, 'enPesos', function ($join) {
                 $join->on('historicos.fecha', 'enPesos.fechaPesos');
             });
+    }
+
+    static public function cotizacion($fecha)
+    {
+        if (is_string($fecha))
+            $fecha = Carbon::create($fecha);
+
+        return static::makePesosPorDolar()->where('fecha', $fecha)->first()->cotizacion;
     }
 }

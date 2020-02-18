@@ -11,5 +11,5 @@ class Operacion extends Model
 
     protected $table = 'operaciones';
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id', 'fecha', 'broker_id', 'pesos', 'dolares'];
 }

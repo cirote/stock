@@ -2,25 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590e2445-43cb-4b9a-a334-d1e643ef7a07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/EjercicioVendedor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Migradores/Base.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Operaciones/Migradores/Ppi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/activo/componentes/lista.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/activo/componentes/mayor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/activo/mayor.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeje/prueba/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeje/prueba/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeje/prueba/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeje/prueba/src/Example.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeje/prueba/tests/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/studio.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stock.ai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stock.ai.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Activo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Activo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Operaciones/Compra.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Operaciones/Compra.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Operaciones/Venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Operaciones/Venta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BonosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BonosTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/Operaciones/OperacionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/Operaciones/OperacionesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/Operaciones/PpiOperacionesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/Operaciones/PpiOperacionesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/activo/lista.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/activo/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activos/Moneda.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Historico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Historico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Operaciones/Migradores/Ppi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Operaciones/Migradores/Ppi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_021823_create_operacions_table.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,11 +140,19 @@
       <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
       <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/franzl/studio" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
     </include_path>
   </component>
   <component name="ProjectId" id="1PtDFdcQMZGYqf8ymbUGZho3VR6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -172,18 +179,6 @@
       <recent name="$PROJECT_DIR$/storage/stock/historico/BCBA" />
       <recent name="$PROJECT_DIR$/app/Models/Activos" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="JavaScript Debug.2019_07_18_182232_create_tickers_table.php">
     <configuration name="2019_07_18_182232_create_tickers_table.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/stock.ai/database/migrations/2019_07_18_182232_create_tickers_table.php" useBuiltInWebServerPort="true">
@@ -230,6 +225,12 @@
       <workItem from="1569464403707" duration="5604000" />
       <workItem from="1569710789143" duration="7264000" />
       <workItem from="1569793711589" duration="7641000" />
+      <workItem from="1569888466517" duration="3869000" />
+      <workItem from="1570986897473" duration="256000" />
+      <workItem from="1571538410392" duration="626000" />
+      <workItem from="1572217683073" duration="320000" />
+      <workItem from="1580663915486" duration="788000" />
+      <workItem from="1581117507907" duration="75000" />
     </task>
     <servers />
   </component>
@@ -251,5 +252,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="333" y="212" key="com.intellij.ide.util.TipDialog" timestamp="1581117539870">
+      <screen x="0" y="0" width="1280" height="767" />
+    </state>
+    <state x="333" y="212" key="com.intellij.ide.util.TipDialog/0.0.1280.767@0.0.1280.767" timestamp="1581117539870" />
   </component>
 </project>

@@ -25,7 +25,7 @@ class PpiOperacionesTableSeeder extends OperacionesTableSeeder
 
             foreach ($datos as $dato)
             {
-                Ppi::Migrate($dato);
+                Ppi::Migrate($dato, $this->broker);
             }
         }
     }

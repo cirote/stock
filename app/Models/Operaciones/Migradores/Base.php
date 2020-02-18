@@ -2,13 +2,24 @@
 
 namespace App\Models\Operaciones\Migradores;
 
+use App\Models\Broker;
+
 abstract class Base
 {
     protected $datos;
 
-    public function __construct($datos)
+    protected $broker;
+
+    public static function Migrate($datos, broker $broker)
+    {
+        return new static($datos, $broker);
+    }
+
+    public function __construct($datos, broker $broker)
     {
         $this->datos = $datos;
+
+        $this->broker = $broker;
 
         if ($this->fecha())
             $this->agregarRegistro();

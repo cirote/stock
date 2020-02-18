@@ -14,10 +14,12 @@ class CreateOperacionsTable extends Migration
             $table->string('type')->nullable();
             $table->date('fecha');
             $table->bigInteger('activo_id')->refers('id')->on('activos')->nullable();
+            $table->bigInteger('broker_id')->refers('id')->on('brokers')->nullable();
             $table->string('descripcion')->nullable();
             $table->bigInteger('cantidad')->nullable();
             $table->decimal('precio')->nullable();
-            $table->decimal('importe');
+            $table->decimal('pesos');
+            $table->decimal('dolares');
             $table->timestamps();
         });
     }

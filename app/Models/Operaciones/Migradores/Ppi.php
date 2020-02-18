@@ -3,6 +3,7 @@
 namespace App\Models\Operaciones\Migradores;
 
 use App\Models\Activos\Activo;
+use App\Models\Activos\Moneda;
 use App\Models\Operaciones\Compra;
 use App\Models\Operaciones\Deposito;
 use App\Models\Operaciones\EjercicioVendedor;
@@ -12,11 +13,6 @@ use Illuminate\Support\Str;
 
 class Ppi extends Base
 {
-    public static function Migrate($dato)
-    {
-        return new static($dato);
-    }
-
     protected function fecha()
     {
         $fecha = trim($this->datos['A']);
@@ -42,9 +38,14 @@ class Ppi extends Base
         return $this->tofloat($this->datos['C']);
     }
 
-    protected function importe()
+    protected function pesos()
     {
         return $this->tofloat($this->datos['E']);
+    }
+
+    protected function dolares()
+    {
+        return $this->pesos() / Moneda::cotizacion($this->fecha());
     }
 
     protected function aportes()
@@ -52,7 +53,9 @@ class Ppi extends Base
         if ($this->descripcion() == 'Ingreso de Fondos') {
             Deposito::create([
                 'fecha'   => $this->fecha(),
-                'importe'   => $this->importe()
+                'pesos'   => $this->pesos(),
+                'dolares' => $this->dolares(),
+                'broker_id' => $this->broker->id
             ]);
         };
     }
@@ -83,9 +86,9 @@ class Ppi extends Base
 
                     $importeCalculado = $this->precio() * $this->cantidad();
 
-                    $diferencia = abs($importeCalculado - $this->importe());
+                    $diferencia = abs($importeCalculado - $this->pesos());
 
-                    $porcentual = $diferencia / $this->importe();
+                    $porcentual = $diferencia / $this->pesos();
 
                     if ($porcentual < 0.1)
                     {
@@ -94,7 +97,9 @@ class Ppi extends Base
                             'activo_id' => $activo ? $activo->id : null,
                             'cantidad'  => $this->cantidad(),
                             'precio'    => $this->precio(),
-                            'importe'   => $this->importe()
+                            'pesos'     => $this->pesos(),
+                            'dolares'   => $this->dolares(),
+                            'broker_id' => $this->broker->id
                         ]);
                     }
                 }
@@ -123,7 +128,9 @@ class Ppi extends Base
                         'activo_id' => $activo ? $activo->id : null,
                         'cantidad'  => $this->cantidad(),
                         'precio'    => $this->precio(),
-                        'importe'   => $this->importe()
+                        'pesos'     => $this->pesos(),
+                        'dolares'   => $this->dolares(),
+                        'broker_id' => $this->broker->id
                     ]);
                 }
             }

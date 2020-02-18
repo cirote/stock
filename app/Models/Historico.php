@@ -53,7 +53,7 @@ class Historico extends Model
     {
         foreach($activo->tickers as $ticker)
         {
-            $url = storage_path("stock/historico/{$mercado->bolsa->sigla}/{$mercado->nombre}/{$ticker->ticker}.csv");
+            $url = storage_path("app/historico/{$mercado->bolsa->sigla}/{$mercado->nombre}/{$ticker->ticker}.csv");
 
             if (file_exists($url))
             {
