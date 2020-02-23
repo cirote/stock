@@ -6,6 +6,7 @@ use App\Models\Operaciones\Compra;
 use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Venta;
+use App\Models\Operaciones\ComisionCompraVenta;
 use Illuminate\Database\Eloquent\Model;
 use Tightenco\Parental\HasChildren;
 
@@ -18,6 +19,20 @@ class Activo extends Model
     static public function byName($name)
     {
         return static::where('denominacion', $name)->first();
+    }
+
+    static public function conStock()
+    {
+        return static::orderBy('denominacion')->get()->filter(function ($value, $key) {
+            return $value->cantidad;
+        });
+    }
+
+    static public function sinStock()
+    {
+        return static::orderBy('denominacion')->get()->filter(function ($value, $key) {
+            return !$value->cantidad;
+        });
     }
 
     /*
@@ -65,8 +80,6 @@ class Activo extends Model
 
     public function getCantidadAttribute()
     {
-        static $cantidad_de_activos = 0;
-
         if (! $this->cantidad_de_activos)
         {
             $this->cantidad_de_activos = 0;
@@ -87,11 +100,45 @@ class Activo extends Model
                 {
                     $this->cantidad_de_activos -= $operacion->cantidad;
                 }
-
             }
         }
 
         return $this->cantidad_de_activos;
+    }
+
+    private $costo_de_los_activos;
+
+    public function getCostoAttribute()
+    {
+        if (! $this->costo_de_los_activos)
+        {
+            $this->costo_de_los_activos = 0;
+
+            foreach ($this->operaciones as $operacion)
+            {
+                if ($operacion instanceof Compra)
+                {
+                    $this->costo_de_los_activos += $operacion->dolares;
+                }
+
+                if ($operacion instanceof Venta)
+                {
+                    $this->costo_de_los_activos -= $operacion->dolares;
+                }
+
+                if ($operacion instanceof EjercicioVendedor)
+                {
+                    $this->costo_de_los_activos -= $operacion->dolares;
+                }
+
+                if ($operacion instanceof ComisionCompraVenta)
+                {
+                    $this->costo_de_los_activos += $operacion->dolares;
+                }
+            }
+        }
+
+        return $this->costo_de_los_activos;
     }
 
 

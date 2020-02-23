@@ -56,7 +56,7 @@ class GrabarOperaciones extends Command
 
             foreach ($datos as $dato)
             {
-                $this->migrador::Migrate($dato, $this->getBroker());
+                $this->migrador::Migrate($dato, $planilla, $this->getBroker());
             }
         }
     }

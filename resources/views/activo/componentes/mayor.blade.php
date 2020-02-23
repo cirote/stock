@@ -11,53 +11,42 @@
                 <th>Fecha</th>
                 <th>Descripcion</th>
                 <th>Cantidad</th>
-                <th>Stock</th>
                 <th>Precio</th>
                 <th>Importe</th>
                 <th>Dolares</th>
             </tr>
             @php($stock = 0)
             @php($dolares = 0)
-            @php($movimientos = $activo->operaciones()->paginate(100))
+            @php($movimientos = $activo->operaciones()->paginate(8))
             @foreach($movimientos as $movimiento)
-
-                @php($stock += $movimiento->cantidad * ($movimiento instanceof \App\Models\Operaciones\Compra))
-                @php($stock -= $movimiento->cantidad * ($movimiento instanceof \App\Models\Operaciones\Venta))
-                @php($stock -= $movimiento->cantidad * ($movimiento instanceof \App\Models\Operaciones\EjercicioVendedor))
-
-                @php($dolares += $movimiento->dolares * ($movimiento instanceof \App\Models\Operaciones\Compra))
-                @php($dolares -= $movimiento->dolares * ($movimiento instanceof \App\Models\Operaciones\Venta))
-                @php($dolares -= $movimiento->dolares * ($movimiento instanceof \App\Models\Operaciones\EjercicioVendedor))
-
                 <tr role="row" class="even">
                     <td>{{ date('d-m-Y', strtotime($movimiento->fecha)) }}</td>
-                    <td>{{ $movimiento->descripcion }}</td>
+                    <td>{{ Str::title(str_replace('_', ' ', Str::snake($movimiento->descripcion))) }}</td>
+                    @if($movimiento->cantidad)
                     <td align="right">{{ number_format($movimiento->cantidad, 0, ',', '.') }}</td>
-                    <td align="right">{{ number_format($stock, 0, ',', '.') }}</td>
                     <td align="right">{{ number_format($movimiento->precio, 2, ',', '.') }}</td>
+                    @else
+                    <td></td>
+                    <td></td>
+                    @endif
                     <td align="right">{{ number_format($movimiento->pesos, 2, ',', '.') }}</td>
                     <td align="right">{{ number_format($movimiento->dolares, 2, ',', '.') }}</td>
                 </tr>
             @endforeach
+            <tr role="row" class="even">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="right">{{ number_format($activo->costo, 2, ',', '.') }}</td>
+            </tr>
             </tbody>
         </table>
         {{ $movimientos->links() }}
     </div>
 
     <div class="box-footer">
-        <tr role="row" class="even">
-            <table class="table table-condensed">
-                <tbody>
-                    <td>*</td>
-                    <td>*</td>
-                    <td align="right">*</td>
-                    <td align="right">*</td>
-                    <td align="right">*</td>
-                    <td align="right">*</td>
-                    <td align="right">{{ number_format($dolares, 2, ',', '.') }}</td>
-                </tbody>
-            </table>
-        </tr>
     </div>
 
 </div>

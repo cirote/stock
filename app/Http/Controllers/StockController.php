@@ -10,7 +10,13 @@ class StockController extends Controller
 	public function index()
     {
         return view('activo.index')
-            ->withActivos(Activo::orderBy('denominacion')->get());
+            ->withActivos(Activo::conStock());
+    }
+
+    public function anteriores()
+    {
+        return view('activo.sinStock')
+            ->withActivos(Activo::sinStock());
     }
 
     public function mayor(Activo $activo)
@@ -23,7 +29,7 @@ class StockController extends Controller
     {
         //dd($activo->historico());
 
-        dd(Moneda::cotizacion('2019-09-05'));
+        //dd(Moneda::cotizacion('2019-09-05'));
 
         return view('prueba')
             ->withActivo($activo);

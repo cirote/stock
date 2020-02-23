@@ -10,16 +10,20 @@ abstract class Base
 
     protected $broker;
 
-    public static function Migrate($datos, broker $broker)
+    protected $planilla;
+
+    public static function Migrate($datos, $planilla, broker $broker)
     {
-        return new static($datos, $broker);
+        return new static($datos, $planilla, $broker);
     }
 
-    public function __construct($datos, broker $broker)
+    public function __construct($datos, $planilla, broker $broker)
     {
         $this->datos = $datos;
 
         $this->broker = $broker;
+
+        $this->planilla = trim($planilla);
 
         if ($this->fecha())
             $this->agregarRegistro();

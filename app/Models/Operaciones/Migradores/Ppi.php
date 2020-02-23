@@ -8,6 +8,7 @@ use App\Models\Operaciones\Compra;
 use App\Models\Operaciones\Deposito;
 use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Venta;
+use App\Models\Operaciones\ComisionCompraVenta;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -38,14 +39,28 @@ class Ppi extends Base
         return $this->tofloat($this->datos['C']);
     }
 
+    protected function monedaUsadaPeso()
+    {
+        if (Str::startsWith($this->planilla, 'Dolar'))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     protected function pesos()
     {
-        return $this->tofloat($this->datos['E']);
+        return $this->monedaUsadaPeso()
+            ? $this->tofloat($this->datos['E'])
+            : $this->dolares() * Moneda::cotizacion($this->fecha());
     }
 
     protected function dolares()
     {
-        return $this->pesos() / Moneda::cotizacion($this->fecha());
+        return $this->monedaUsadaPeso()
+            ? $this->pesos() / Moneda::cotizacion($this->fecha())
+            : $this->tofloat($this->datos['E']);
     }
 
     protected function aportes()
@@ -84,17 +99,25 @@ class Ppi extends Base
 
                 if ($activo) {
 
-                    $importeCalculado = $this->precio() * $this->cantidad();
+                    if ($this->monedaUsadaPeso())
+                    {
+                        $importeCalculado = $this->precio() * $this->cantidad();
 
-                    $diferencia = abs($importeCalculado - $this->pesos());
+                        $diferencia = abs($importeCalculado - $this->pesos());
 
-                    $porcentual = $diferencia / $this->pesos();
+                        $porcentual = $diferencia / $this->pesos();
+                    }
+
+                    else
+                    {
+                        $porcentual = 0;
+                    }
 
                     if ($porcentual < 0.1)
                     {
                         $clase::create([
                             'fecha'     => $this->fecha(),
-                            'activo_id' => $activo ? $activo->id : null,
+                            'activo_id' => $activo->id,
                             'cantidad'  => $this->cantidad(),
                             'precio'    => $this->precio(),
                             'pesos'     => $this->pesos(),
@@ -102,6 +125,24 @@ class Ppi extends Base
                             'broker_id' => $this->broker->id
                         ]);
                     }
+
+                    else 
+                    {
+                         ComisionCompraVenta::create([
+                            'fecha'     => $this->fecha(),
+                            'activo_id' => $activo->id,
+                            'cantidad'  => 0,
+                            'precio'    => 0,
+                            'pesos'     => $this->pesos(),
+                            'dolares'   => $this->dolares(),
+                            'broker_id' => $this->broker->id
+                        ]);                       
+                    }
+                }
+
+                else {
+
+                    echo("El ticker [$ticker] no existe en la base de datos \n");
                 }
             }
         }
@@ -125,7 +166,7 @@ class Ppi extends Base
                 {
                     EjercicioVendedor::create([
                         'fecha'     => $this->fecha(),
-                        'activo_id' => $activo ? $activo->id : null,
+                        'activo_id' => $activo->id,
                         'cantidad'  => $this->cantidad(),
                         'precio'    => $this->precio(),
                         'pesos'     => $this->pesos(),
