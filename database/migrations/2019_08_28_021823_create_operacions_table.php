@@ -17,9 +17,9 @@ class CreateOperacionsTable extends Migration
             $table->bigInteger('broker_id')->refers('id')->on('brokers')->nullable();
             $table->string('descripcion')->nullable();
             $table->bigInteger('cantidad')->nullable();
-            $table->decimal('precio')->nullable();
-            $table->decimal('pesos');
-            $table->decimal('dolares');
+            $table->double('precio')->nullable();
+            $table->double('pesos');
+            $table->double('dolares');
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class BolsasTableSeeder extends Seeder
             'sigla'  => 'BCBA'
         ])
 //            ->agregarMercado('BCBA - Inmediata', '$', 'APBR', 'TXAR', 'TS', 'SAN', 'AY24')
-            ->agregarMercado('BCBA - 48 hs', '$', 'APBR', 'TXAR', 'TS', 'SAN', 'AY24')
+            ->agregarMercado('BCBA - 48 hs', '$', 'APBR', 'TXAR', 'TS', 'SAN', 'AY24', 'YPFD')
 //            ->agregarMercado('Contado con liquidacion - Inmediata', 'USD', 'AY24C')
             ->agregarMercado('Contado con liquidacion - 48 hs', 'USD', 'AY24C')
 //            ->agregarMercado('Dolar MEP - Inmediata', 'USD', 'AY24D')

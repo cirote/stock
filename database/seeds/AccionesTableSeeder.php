@@ -32,5 +32,11 @@ class AccionesTableSeeder extends Seeder
             'clase'  => 'Acciones ordinarias'
         ])
             ->agregarTicker('TS');
+
+        Accion::create([
+            'denominacion' => 'Yacimientos Petroliferos Fiscales S.A.',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('YPFD');
     }
 }

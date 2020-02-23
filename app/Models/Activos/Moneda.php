@@ -36,6 +36,6 @@ class Moneda extends Activo
         if (is_string($fecha))
             $fecha = Carbon::create($fecha);
 
-        return static::makePesosPorDolar()->where('fecha', $fecha)->first()->cotizacion;
+        return static::makePesosPorDolar()->where('fecha', '<=', $fecha)->orderByDesc('fecha')->first()->cotizacion;
     }
 }
