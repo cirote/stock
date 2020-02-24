@@ -132,19 +132,14 @@ return [
             'text' => 'search',
             'search' => true,
         ],
-        ['header' => 'main_navigation'],
+        
+        ['header' => 'BROKERS'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Aportes',
+            'url'  => 'aportes/2',
+            'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+
         ['header' => 'ACTIVOS'],
         [
             'text' => 'Activos con stock',

@@ -10,3 +10,5 @@ Route::get('/activo/{activo}/mayor', 'StockController@mayor')->name('activo.mayo
 
 Route::get('/ccl/{activo}', 'StockController@ccl');
 Route::get('/sma/{activo}', 'StockController@sma');
+
+Route::get('/aportes/{broker}', 'BrokerController@aportes')->name('broker.aportes');

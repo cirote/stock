@@ -12,4 +12,11 @@ class Operacion extends Model
     protected $table = 'operaciones';
 
     protected $fillable = ['id', 'fecha', 'activo_id', 'broker_id', 'cantidad', 'precio', 'pesos', 'dolares'];
+
+    static public function aportes()
+    {
+        return static::where('type', Deposito::class);
+    }
+
+
 }
