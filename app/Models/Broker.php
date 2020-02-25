@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Deposito;
+use App\Models\Operaciones\Retiro;
 
 class Broker extends Model
 {
@@ -21,8 +22,8 @@ class Broker extends Model
     public function operaciones()
     {
         return $this->hasMany(Operacion::class, 'broker_id')
-        	->where('type', Deposito::class)
-        	->orderBy('fecha');
+        	->whereIn('type', [Deposito::class, Retiro::class])
+        	->orderByDesc('fecha');
     }
 
 
@@ -39,6 +40,11 @@ class Broker extends Model
                 if ($operacion instanceof Deposito)
                 {
                     $this->aportes_netos += $operacion->dolares;
+                }
+
+                if ($operacion instanceof Retiro)
+                {
+                    $this->aportes_netos -= $operacion->dolares;
                 }
             }
         }

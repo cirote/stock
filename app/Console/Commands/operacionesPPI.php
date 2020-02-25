@@ -14,7 +14,7 @@ class operacionesPPI extends GrabarOperaciones
 
     protected $broker = 'PPI';
 
-    protected $archivos = ['Movimientos 01.xlsx', 'Movimientos 2019.xlsx'];
+    protected $archivos = ['Movimientos 01.xlsx', 'Movimientos 2019.xlsx', 'Movimientos 2020.xlsx'];
 
     protected $migrador = Ppi::class;
 }

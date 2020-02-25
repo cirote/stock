@@ -135,8 +135,8 @@ return [
         
         ['header' => 'BROKERS'],
         [
-            'text' => 'Aportes',
-            'url'  => 'aportes/2',
+            'text' => 'Lista de brokers',
+            'url'  => 'broker',
             'icon' => 'fas fa-fw fa-user',
         ],
 
@@ -148,7 +148,7 @@ return [
         ],
         [
             'text' => 'Activos sin stock',
-            'url'  => 'anteriores',
+            'url'  => 'activos/anteriores',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

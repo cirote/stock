@@ -32,6 +32,7 @@ abstract class Base
     protected function agregarRegistro()
     {
         $this->aportes();
+        $this->retiros();
         $this->compras();
         $this->ventas();
         $this->ejercicioVendedor();
@@ -41,9 +42,13 @@ abstract class Base
 
     abstract protected function aportes();
 
+    abstract protected function retiros();
+
     abstract protected function compras();
 
     abstract protected function ventas();
+
+    abstract protected function ejercicioVendedor();
 
     protected function tofloat($num)
     {

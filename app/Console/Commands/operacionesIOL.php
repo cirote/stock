@@ -3,40 +3,18 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Console\GrabarOperaciones;
+use App\Models\Operaciones\Migradores\Iol;
 
-class operacionesIOL extends Command
+class operacionesIOL extends GrabarOperaciones
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'populate:name';
+    protected $signature = 'populate:iol';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
+    protected $description = 'Carga lista de operaciones de IOL';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    protected $broker = 'IOL';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
-    }
+    protected $archivos = ['MovimientosHistoricos.xlsx', 'Movimientos 2020.xlsx'];
+
+    protected $migrador = Iol::class;
 }

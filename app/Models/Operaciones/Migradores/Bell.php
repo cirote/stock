@@ -13,31 +13,39 @@ use App\Models\Operaciones\ComisionCompraVenta;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
-class Ppi extends Base
+class Bell extends Base
 {
     protected function fecha()
     {
-        $fecha = trim($this->datos['A']);
+        $fecha = trim($this->datos['B']);
 
-        if (! (strlen($fecha) == 10))
+        if (! (strlen($fecha) == 8))
             return null;
 
-        return Carbon::createFromFormat("d/m/Y H:i:s", $fecha . ' 00:00:00');
+        if ($fecha == 'Concepto')
+            return null;
+        
+        return Carbon::createFromFormat("d/m/y H:i:s", $fecha . ' 00:00:00');
     }
 
     protected function descripcion()
     {
-        return trim($this->datos['B']);
+        return trim($this->datos['K']);
+    }
+
+    protected function operacion()
+    {
+        return trim($this->datos['D']);
     }
 
     protected function precio()
     {
-        return $this->tofloat($this->datos['D']);
+        return $this->tofloat($this->datos['H']);
     }
 
     protected function cantidad()
     {
-        return $this->tofloat($this->datos['C']);
+        return $this->tofloat($this->datos['G']);
     }
 
     protected function monedaUsadaPeso()
@@ -53,7 +61,7 @@ class Ppi extends Base
     protected function pesos()
     {
         return $this->monedaUsadaPeso()
-            ? $this->tofloat($this->datos['E'])
+            ? $this->tofloat($this->datos['I'])
             : $this->dolares() * Moneda::cotizacion($this->fecha());
     }
 
@@ -61,12 +69,12 @@ class Ppi extends Base
     {
         return $this->monedaUsadaPeso()
             ? $this->pesos() / Moneda::cotizacion($this->fecha())
-            : $this->tofloat($this->datos['E']);
+            : $this->tofloat($this->datos['I']);
     }
 
     protected function aportes()
     {
-        if ($this->descripcion() == 'Ingreso de Fondos') {
+        if ($this->operacion() == 'COBR') {
             Deposito::create([
                 'fecha'   => $this->fecha(),
                 'pesos'   => $this->pesos(),

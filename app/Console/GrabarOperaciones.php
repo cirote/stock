@@ -15,7 +15,7 @@ class GrabarOperaciones extends Command
         $url = storage_path("app/historico/BCBA/{$this->getBroker()->sigla}/{$file}");
 
         if (! file_exists($url))
-            throw new error("El archivo [$url] no existe");
+            throw new \error("El archivo [$url] no existe");
 
         $reader = IOFactory::createReaderForFile($url);
         $reader->setReadDataOnly(true);

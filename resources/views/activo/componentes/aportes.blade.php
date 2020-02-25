@@ -10,8 +10,8 @@
             <tr>
                 <th>Fecha</th>
                 <th>Descripcion</th>
-                <th>Monto</th>
-                <th>Dolares</th>
+                <th align="right">En pesos</th>
+                <th align="right">En dolares</th>
             </tr>
             @php($stock = 0)
             @php($dolares = 0)
