@@ -8,6 +8,12 @@ class AccionesTableSeeder extends Seeder
     public function run()
     {
         Accion::create([
+            'denominacion' => 'Carboclor S.A.',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('CARC');
+
+        Accion::create([
             'denominacion' => 'Banco Santander S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
@@ -28,10 +34,23 @@ class AccionesTableSeeder extends Seeder
             ->agregarTicker('ERAR');
 
         Accion::create([
+            'denominacion' => 'Banco Supervielle S.A.',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('SUPV');
+
+        Accion::create([
             'denominacion' => 'Tenaris S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
             ->agregarTicker('TS');
+
+        Accion::create([
+            'denominacion' => 'Phoenix Global Resources (ex Andes Energia)',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('PGR')
+            ->agregarTicker('AEN');
 
         Accion::create([
             'denominacion' => 'Yacimientos Petroliferos Fiscales S.A.',

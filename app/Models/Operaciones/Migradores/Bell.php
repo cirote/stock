@@ -30,7 +30,7 @@ class Bell extends Base
 
     protected function descripcion()
     {
-        return trim($this->datos['K']);
+        return trim($this->datos['F']);
     }
 
     protected function operacion()
@@ -98,94 +98,27 @@ class Bell extends Base
 
     protected function compras()
     {
-        $this->compra_venta('COMPRA', Compra::class);
+        $this->compra_venta('CPRA', Compra::class);
     }
 
     protected function ventas()
     {
-        $this->compra_venta('VENTA', Venta::class);
+        $this->compra_venta('VTAS', Venta::class);
     }
 
     protected function compra_venta($leyenda, $clase)
     {
-        if (Str::startsWith($this->descripcion(), $leyenda))
+        if ($this->operacion() == $leyenda) 
         {
-            $partes = explode(' ', $this->descripcion());
+            $ticker = $this->nombreTicker($this->descripcion());
 
-            if (count($partes) == 2)
+            if ($ticker)
             {
-                $ticker = trim($partes[1]);
-
                 $activo = Activo::byTicker($ticker);
 
-                if ($activo) {
-
-                    if ($this->monedaUsadaPeso())
-                    {
-                        $importeCalculado = $this->precio() * $this->cantidad();
-
-                        $diferencia = abs($importeCalculado - $this->pesos());
-
-                        $porcentual = $diferencia / $this->pesos();
-                    }
-
-                    else
-                    {
-                        $porcentual = 0;
-                    }
-
-                    if ($porcentual < 0.1)
-                    {
-                        $clase::create([
-                            'fecha'     => $this->fecha(),
-                            'activo_id' => $activo->id,
-                            'cantidad'  => $this->cantidad(),
-                            'precio'    => $this->precio(),
-                            'pesos'     => $this->pesos(),
-                            'dolares'   => $this->dolares(),
-                            'broker_id' => $this->broker->id
-                        ]);
-                    }
-
-                    else 
-                    {
-                         ComisionCompraVenta::create([
-                            'fecha'     => $this->fecha(),
-                            'activo_id' => $activo->id,
-                            'cantidad'  => 0,
-                            'precio'    => 0,
-                            'pesos'     => $this->pesos(),
-                            'dolares'   => $this->dolares(),
-                            'broker_id' => $this->broker->id
-                        ]);                       
-                    }
-                }
-
-                else {
-
-                    echo("El ticker [$ticker] no existe en la base de datos \n");
-                }
-            }
-        }
-    }
-
-    protected function ejercicioVendedor()
-    {
-        if (Str::startsWith($this->descripcion(), 'Boleto'))
-        {
-            $partes = explode(' / ', $this->descripcion());
-
-            if ((count($partes) == 6) AND ($partes[2] == 'EJERCLAN'))
-            {
-                $tickerOpcion = trim($partes[4]);
-
-                $ticker = substr($tickerOpcion, 0, 3);
-
-                $activo = Activo::byTicker($ticker);
-
-                if ($activo)
+                if ($activo) 
                 {
-                    EjercicioVendedor::create([
+                    $clase::create([
                         'fecha'     => $this->fecha(),
                         'activo_id' => $activo->id,
                         'cantidad'  => $this->cantidad(),
@@ -195,6 +128,127 @@ class Bell extends Base
                         'broker_id' => $this->broker->id
                     ]);
                 }
+
+                else
+                {
+                    echo("El ticker [$ticker] no existe en la base de datos \n");
+                }
+            }
+
+            else
+            {
+                echo("Descripcion [{$this->descripcion()}] no interpretable \n");
+            }
+        }
+    }
+
+    protected function nombreTicker($nombre)
+    {
+        if (strlen($this->descripcion()) == 4)
+        {
+            $ticker = $this->descripcion();
+        }
+
+        else
+        {
+            switch ($nombre)
+            {
+                case 'PHOENIX GLOBAL RESOURCES PLC. ORD SHS':
+
+                    $ticker = 'PGR';
+
+                    break;
+
+                case 'TERNIUM ARG S.A.ORDS. A 1 VOTO ESC':
+
+                    $ticker = 'TXAR';
+
+                    break;
+
+                case 'CARBOCLOR SA':
+
+                    $ticker = 'CARC';
+
+                    break;
+
+                case 'BANCO SANTANDER C.H.':
+
+                    $ticker = 'SAN';
+
+                    break;
+
+                case 'GRUPO SUPERVIELLE ACC.ORD. "B" 1':
+
+                    $ticker = 'SUPV';
+
+                    break;
+
+                case 'YPF S.A.':
+
+                    $ticker = 'YPFD';
+
+                    break;
+
+                case 'BONO REP ARGENTINA 7,125% 28/06/2117':
+
+                    $ticker = 'AC17';
+
+                    break;
+
+                case 'BPLD - PROV BSAS 2035 4% USD':
+
+                    $ticker = 'BPLD';
+
+                    break;
+
+                case 'DICA BONO DISCOUNT U$S 8,28% 2033':
+
+                    $ticker = 'DICA';
+
+                    break;
+
+                case 'DICY BONO DISCOUNT U$S 8,28% 2033':
+
+                    $ticker = 'DICY';
+
+                    break;
+
+                case 'TVPA VAL.NEG. PBI 2035':
+
+                    $ticker = 'TVPA';
+
+                    break;
+
+                default:
+
+                    $ticker = null;
+
+                    break;
+            }
+        }
+
+        return $ticker;
+    }
+
+    protected function ejercicioVendedor()
+    {
+        if ($this->operacion() == 'EJPV') 
+        {
+            $ticker = $this->nombreTicker($this->descripcion());
+
+            $activo = Activo::byTicker($ticker);
+
+            if ($activo)
+            {
+                EjercicioVendedor::create([
+                    'fecha'     => $this->fecha(),
+                    'activo_id' => $activo->id,
+                    'cantidad'  => $this->cantidad(),
+                    'precio'    => $this->precio(),
+                    'pesos'     => $this->pesos(),
+                    'dolares'   => $this->dolares(),
+                    'broker_id' => $this->broker->id
+                ]);
             }
         }
     }
