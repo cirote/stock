@@ -10,6 +10,7 @@ use App\Models\Operaciones\Deposito;
 use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Venta;
 use App\Models\Operaciones\ComisionCompraVenta;
+use App\Models\Operaciones\Suscripcion;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -142,6 +143,52 @@ class Bell extends Base
         }
     }
 
+    protected function ejercicioVendedor()
+    {
+        if ($this->operacion() == 'EJPV') 
+        {
+            $ticker = $this->nombreTicker($this->descripcion());
+
+            $activo = Activo::byTicker($ticker);
+
+            if ($activo)
+            {
+                EjercicioVendedor::create([
+                    'fecha'     => $this->fecha(),
+                    'activo_id' => $activo->id,
+                    'cantidad'  => $this->cantidad(),
+                    'precio'    => $this->precio(),
+                    'pesos'     => $this->pesos(),
+                    'dolares'   => $this->dolares(),
+                    'broker_id' => $this->broker->id
+                ]);
+            }
+        }
+    }
+
+    protected function suscripcion()
+    {
+        if ($this->operacion() == 'SUSC') 
+        {
+            $ticker = $this->nombreTicker($this->descripcion());
+
+            $activo = Activo::byTicker($ticker);
+
+            if ($activo)
+            {
+                Suscripcion::create([
+                    'fecha'     => $this->fecha(),
+                    'activo_id' => $activo->id,
+                    'cantidad'  => $this->cantidad(),
+                    'precio'    => $this->pesos() / $this->cantidad(),
+                    'pesos'     => $this->pesos(),
+                    'dolares'   => $this->dolares(),
+                    'broker_id' => $this->broker->id
+                ]);
+            }
+        }
+    }
+
     protected function nombreTicker($nombre)
     {
         if (strlen($this->descripcion()) == 4)
@@ -228,28 +275,5 @@ class Bell extends Base
         }
 
         return $ticker;
-    }
-
-    protected function ejercicioVendedor()
-    {
-        if ($this->operacion() == 'EJPV') 
-        {
-            $ticker = $this->nombreTicker($this->descripcion());
-
-            $activo = Activo::byTicker($ticker);
-
-            if ($activo)
-            {
-                EjercicioVendedor::create([
-                    'fecha'     => $this->fecha(),
-                    'activo_id' => $activo->id,
-                    'cantidad'  => $this->cantidad(),
-                    'precio'    => $this->precio(),
-                    'pesos'     => $this->pesos(),
-                    'dolares'   => $this->dolares(),
-                    'broker_id' => $this->broker->id
-                ]);
-            }
-        }
     }
 }

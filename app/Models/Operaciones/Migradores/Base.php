@@ -36,6 +36,7 @@ abstract class Base
         $this->compras();
         $this->ventas();
         $this->ejercicioVendedor();
+        $this->suscripcion();
     }
 
     abstract protected function fecha();

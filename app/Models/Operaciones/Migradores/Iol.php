@@ -97,73 +97,46 @@ class Iol extends Base
 
     protected function compras()
     {
-        $this->compra_venta('COMPRA', Compra::class);
+        $this->compra_venta('Compra(', Compra::class);
     }
 
     protected function ventas()
     {
-        $this->compra_venta('VENTA', Venta::class);
+        $this->compra_venta('Venta(', Venta::class);
     }
 
     protected function compra_venta($leyenda, $clase)
     {
         if (Str::startsWith($this->descripcion(), $leyenda))
         {
-            $partes = explode(' ', $this->descripcion());
+            $ticker = $this->nombreTicker($this->descripcion());
 
-            if (count($partes) == 2)
+            if ($ticker)
             {
-                $ticker = trim($partes[1]);
-
                 $activo = Activo::byTicker($ticker);
 
-                if ($activo) {
-
-                    if ($this->monedaUsadaPeso())
-                    {
-                        $importeCalculado = $this->precio() * $this->cantidad();
-
-                        $diferencia = abs($importeCalculado - $this->pesos());
-
-                        $porcentual = $diferencia / $this->pesos();
-                    }
-
-                    else
-                    {
-                        $porcentual = 0;
-                    }
-
-                    if ($porcentual < 0.1)
-                    {
-                        $clase::create([
-                            'fecha'     => $this->fecha(),
-                            'activo_id' => $activo->id,
-                            'cantidad'  => $this->cantidad(),
-                            'precio'    => $this->precio(),
-                            'pesos'     => $this->pesos(),
-                            'dolares'   => $this->dolares(),
-                            'broker_id' => $this->broker->id
-                        ]);
-                    }
-
-                    else 
-                    {
-                         ComisionCompraVenta::create([
-                            'fecha'     => $this->fecha(),
-                            'activo_id' => $activo->id,
-                            'cantidad'  => 0,
-                            'precio'    => 0,
-                            'pesos'     => $this->pesos(),
-                            'dolares'   => $this->dolares(),
-                            'broker_id' => $this->broker->id
-                        ]);                       
-                    }
+                if ($activo) 
+                {
+                    $clase::create([
+                        'fecha'     => $this->fecha(),
+                        'activo_id' => $activo->id,
+                        'cantidad'  => $this->cantidad(),
+                        'precio'    => $this->precio(),
+                        'pesos'     => $this->pesos(),
+                        'dolares'   => $this->dolares(),
+                        'broker_id' => $this->broker->id
+                    ]);
                 }
 
-                else {
-
+                else
+                {
                     echo("El ticker [$ticker] no existe en la base de datos \n");
                 }
+            }
+
+            else
+            {
+                echo("La descripcion [{$this->descripcion()}] no es interpretable \n");
             }
         }
     }
@@ -196,5 +169,55 @@ class Iol extends Base
                 }
             }
         }
+    }
+
+    protected function suscripcion()
+    {
+        if (Str::startsWith($this->descripcion(), 'Extracción bb de Fondos')) 
+        {
+            $ticker = $this->nombreTicker($this->descripcion());
+
+            $activo = Activo::byTicker($ticker);
+
+            if ($activo)
+            {
+                Suscripcion::create([
+                    'fecha'     => $this->fecha(),
+                    'activo_id' => $activo->id,
+                    'cantidad'  => $this->cantidad(),
+                    'precio'    => $this->pesos() / $this->cantidad(),
+                    'pesos'     => $this->pesos(),
+                    'dolares'   => $this->dolares(),
+                    'broker_id' => $this->broker->id
+                ]);
+            }
+        }
+    }
+
+    protected function nombreTicker($nombre)
+    {
+        $posInicial = strpos($nombre, '(');
+
+        if ($posInicial === false) 
+        {
+            $ticker = null;
+        } 
+
+        else 
+        {
+            $posFinal = strpos($nombre, ')');
+
+            if ($posFinal === false) 
+            {
+                $ticker = null;
+            } 
+
+            else
+            {
+                $ticker = substr($nombre, $posInicial + 1, $posFinal - 1 - $posInicial);
+            }
+        }
+
+        return $ticker;
     }
 }

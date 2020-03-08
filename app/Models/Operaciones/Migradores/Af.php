@@ -93,5 +93,15 @@ class Af extends Base
     {
 
     }
+
+    protected function suscripcion()
+    {
+
+    }
+
+    protected function nombreTicker($nombre)
+    {
+
+    }
 }
 

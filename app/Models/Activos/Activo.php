@@ -7,6 +7,7 @@ use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Venta;
 use App\Models\Operaciones\ComisionCompraVenta;
+use App\Models\Operaciones\Suscripcion;
 use Illuminate\Database\Eloquent\Model;
 use Tightenco\Parental\HasChildren;
 
@@ -91,6 +92,11 @@ class Activo extends Model
                     $this->cantidad_de_activos += $operacion->cantidad;
                 }
 
+                if ($operacion instanceof Suscripcion)
+                {
+                    $this->cantidad_de_activos += $operacion->cantidad;
+                }
+
                 if ($operacion instanceof Venta)
                 {
                     $this->cantidad_de_activos -= $operacion->cantidad;
@@ -117,6 +123,11 @@ class Activo extends Model
             foreach ($this->operaciones as $operacion)
             {
                 if ($operacion instanceof Compra)
+                {
+                    $this->costo_de_los_activos += $operacion->dolares;
+                }
+
+                if ($operacion instanceof Suscripcion)
                 {
                     $this->costo_de_los_activos += $operacion->dolares;
                 }
