@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Activos\Activo;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Deposito;
 use App\Models\Operaciones\Retiro;
@@ -21,11 +22,36 @@ class Broker extends Model
 
     public function operaciones()
     {
-        return $this->hasMany(Operacion::class, 'broker_id')
-        	->whereIn('type', [Deposito::class, Retiro::class])
-        	->orderByDesc('fecha');
+        return $this->hasMany(Operacion::class);
     }
 
+    public function operacionesPorFecha()
+    {
+        return $this->operaciones()->orderByDesc('fecha');
+    }
+
+
+    public function activos()
+    {   
+        return Activo::select(['activos.*', 'operaciones.broker_id as broker_id'])
+            ->join('operaciones', 'operaciones.activo_id', '=', 'activos.id')
+            ->where('broker_id', $this->id)
+            ->distinct();
+    }
+
+    public function getAActivosAttribute()
+    {
+        return $this->activos()->conStock();
+    }
+
+    public function conStock()
+    {
+        return $this->activos()->orderBy('denominacion')->get()
+            ->filter(function ($activo, $key) 
+                {
+                    return $activo->cantidad;
+                });
+    }
 
     private $aportes_netos;
 
@@ -51,6 +77,4 @@ class Broker extends Model
 
         return $this->aportes_netos;
     }
-
-
 }

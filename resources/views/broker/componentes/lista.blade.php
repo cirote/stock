@@ -11,15 +11,20 @@
                 <th>Sigla</th>
                 <th>Nombre</th>
                 <th>Aportes</th>
-                <th>Otros</th>
+                <th>Actual</th>
+                <th>Neto</th>
             </tr>
             @php($total = 0)
             @foreach($brokers as $broker)
             @php($total += $broker->aportesNetos)
                 <tr role="row" class="even">
-                    <td><a href="{{ route('broker.aportes', ['broker' => $broker]) }}">{{ $broker->sigla }}</a></td>
+                    <td><a href="{{ route('activo.broker.index', ['broker' => $broker]) }}">{{ $broker->sigla }}</a></td>
                     <td>{{ $broker->nombre }}</td>
-                    <td align="right">{{ number_format($broker->aportesNetos, 0, ',', '.') }}</td>
+                    <td align="right">
+                        <a href="{{ route('broker.aportes', ['broker' => $broker]) }}">
+                            {{ number_format($broker->aportesNetos, 0, ',', '.') }}
+                        </a>
+                    </td>
                     <td></td>
                 </tr>
             @endforeach

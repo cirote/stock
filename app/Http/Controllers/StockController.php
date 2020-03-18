@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Broker;
 use App\Models\Activos\Activo;
 use App\Models\Activos\Moneda;
 
@@ -10,7 +11,15 @@ class StockController extends Controller
 	public function index()
     {
         return view('activo.index')
+            ->withTitulo('Total de Activos con stock')
             ->withActivos(Activo::conStock());
+    }
+
+    public function broker(Broker $broker)
+    {
+        return view('activo.index')
+            ->withTitulo($broker->nombre)
+            ->withActivos($broker->conStock());
     }
 
     public function anteriores()

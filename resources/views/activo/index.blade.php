@@ -3,7 +3,7 @@
 @section('title', 'Stocks')
 
 @section('content_header')
-    <h1>Pagina principal</h1>
+    <h1>{{ $titulo }}</h1>
 @stop
 
 @section('content')

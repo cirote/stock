@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="col-md-6">
+    <div class="col-md-8">
     @include('broker.componentes.lista')
     </div>
 @stop

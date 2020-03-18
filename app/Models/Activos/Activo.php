@@ -2,20 +2,21 @@
 
 namespace App\Models\Activos;
 
+use Illuminate\Database\Eloquent\Model;
+use Tightenco\Parental\HasChildren;
+use App\Models\Broker;
 use App\Models\Operaciones\Compra;
 use App\Models\Operaciones\EjercicioVendedor;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Venta;
 use App\Models\Operaciones\ComisionCompraVenta;
 use App\Models\Operaciones\Suscripcion;
-use Illuminate\Database\Eloquent\Model;
-use Tightenco\Parental\HasChildren;
 
 class Activo extends Model
 {
     use HasChildren;
 
-    protected $fillable = ['type'];
+    protected $fillable = ['type', 'denominacion', 'clase'];
 
     static public function byName($name)
     {
@@ -24,14 +25,16 @@ class Activo extends Model
 
     static public function conStock()
     {
-        return static::orderBy('denominacion')->get()->filter(function ($value, $key) {
+        return static::orderBy('denominacion')->get()->filter(function ($value, $key) 
+        {
             return $value->cantidad;
         });
     }
 
     static public function sinStock()
     {
-        return static::orderBy('denominacion')->get()->filter(function ($value, $key) {
+        return static::orderBy('denominacion')->get()->filter(function ($value, $key) 
+        {
             return !$value->cantidad;
         });
     }
@@ -72,8 +75,21 @@ class Activo extends Model
      * Funciones con las bolsas
      */
 
+    public function broker()
+    {
+        if ($this->broker_id)
+            return $this->belongsTo(Broker::class);
+    }
+
     public function operaciones()
     {
+        if ($this->broker_id)
+        {
+            return $this->hasMany(Operacion::class, 'activo_id')
+                ->where('broker_id', $this->broker_id)
+                ->orderBy('fecha');
+        }
+
         return $this->hasMany(Operacion::class, 'activo_id')->orderBy('fecha');
     }
 

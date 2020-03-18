@@ -4,6 +4,7 @@ namespace App\Models\Operaciones;
 
 use Illuminate\Database\Eloquent\Model;
 use Tightenco\Parental\HasChildren;
+use App\Models\Activos\Activo;
 
 class Operacion extends Model
 {
@@ -17,6 +18,4 @@ class Operacion extends Model
     {
         return static::where('type', Deposito::class);
     }
-
-
 }
