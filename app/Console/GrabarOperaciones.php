@@ -30,7 +30,8 @@ class GrabarOperaciones extends Command
 
     protected function getBroker(): Broker
     {
-        if (! $this->_broker) {
+        if (! $this->_broker) 
+        {
             $this->_broker = Broker::bySigla($this->broker);
         }
 
@@ -39,7 +40,8 @@ class GrabarOperaciones extends Command
 
     protected function cargarDatos()
     {
-        foreach ($this->archivos as $archivo) {
+        foreach ($this->archivos as $archivo) 
+        {
             $this->migrarArchivo($archivo);
         }
     }

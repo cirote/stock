@@ -56,6 +56,7 @@ class AccionesTableSeeder extends Seeder
             'denominacion' => 'Yacimientos Petroliferos Fiscales S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
+            ->agregarTicker('YPF')
             ->agregarTicker('YPFD');
     }
 }

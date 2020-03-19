@@ -194,6 +194,21 @@ return [
                 ],
             ],
         ],
+
+        ['header' => 'ACCIONES'],
+        [
+            'text' => 'Acciones con stock',
+            'url'  => 'acciones',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        ['header' => 'BONOS'],
+        [
+            'text' => 'Bonos con stock',
+            'url'  => 'bonos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',

@@ -31,16 +31,16 @@ class Historico extends Model
         {
             $historico =
                 [
-                    'fecha' => Carbon::create($registro['fecha']),
-                    'apertura' => static::cleanNumber($registro['apertura']),
-                    'maximo' => static::cleanNumber($registro['maximo']),
-                    'minimo' => static::cleanNumber($registro['minimo']),
-                    'cierre' => static::cleanNumber($registro['cierre']),
-                    'volumen' => static::cleanNumber($registro['volumen']),
+                    'fecha'      => Carbon::create($registro['fecha']),
+                    'apertura'   => static::cleanNumber($registro['apertura']),
+                    'maximo'     => static::cleanNumber($registro['maximo']),
+                    'minimo'     => static::cleanNumber($registro['minimo']),
+                    'cierre'     => static::cleanNumber($registro['cierre']),
+                    'volumen'    => static::cleanNumber($registro['volumen']),
                     'interes_abierto' => $registro['openint'],
                     'mercado_id' => $mercado->id,
-                    'activo_id' => $activo->id,
-                    'moneda_id' => $mercado->moneda->id
+                    'activo_id'  => $activo->id,
+                    'moneda_id'  => $mercado->moneda->id
                 ];
 
             unset($historico['openint']);

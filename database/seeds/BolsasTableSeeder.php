@@ -22,7 +22,7 @@ class BolsasTableSeeder extends Seeder
             'nombre' => 'New York Stock Exchange',
             'sigla'  => 'NYSE'
         ])
-            ->agregarMercado('NYSE', 'USD', 'TS', 'PBR', 'SAN');
+            ->agregarMercado('NYSE', 'USD', 'TS', 'YPF', 'PBR', 'SAN');
 
         Bolsa::create([
             'nombre' => 'OKEx',

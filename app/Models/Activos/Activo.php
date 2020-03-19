@@ -130,7 +130,7 @@ class Activo extends Model
 
     private $costo_de_los_activos;
 
-    public function getCostoAttribute()
+    public function getCostoDolaresAttribute()
     {
         if (! $this->costo_de_los_activos)
         {
@@ -168,5 +168,37 @@ class Activo extends Model
         return $this->costo_de_los_activos;
     }
 
+    public function precios()
+    {
+        return $this->hasMany(Precio::class, 'activo_id');
+    }
 
+    public function getPrecioAttribute()
+    {
+        return $this->precios()->orderByDesc('updated_at')->first();
+    }
+
+    public function getPrecioActualPesosAttribute()
+    {
+        return $this->precios()->count()
+            ? $this->precio->precio_pesos
+            : 0;
+    }
+
+    public function getPrecioActualDolaresAttribute()
+    {
+        return $this->precios()->count()
+            ? $this->precio->precio_dolares
+            : 0;
+    }
+
+    public function getValorActualDolaresAttribute()
+    {
+        return $this->precioActualDolares * $this->cantidad;
+    }
+
+    public function getRelacionCostoValorDolaresAttribute()
+    {
+        return $this->valorActualDolares / $this->costoDolares * 100;
+    }
 }
