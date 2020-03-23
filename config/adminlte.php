@@ -209,6 +209,13 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
 
+        ['header' => 'OPCIONES'],
+        [
+            'text' => 'Total de opciones',
+            'url'  => 'opciones',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',

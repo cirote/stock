@@ -22,8 +22,16 @@
             @foreach($activos as $activo)
                 @if(! $activo instanceof \App\Models\Activos\Moneda)
                 <tr role="row" class="even">
-                    <td><a href="{{ route('activo.mayor', ['activo' => $activo]) }}">{{ $activo->ticker }}</a></td>
-                    <td>{{ $activo->denominacion }}</td>
+                    <td><a href="{{ route('activo.mayor', ['activo' => $activo]) }}">{{ $activo->ticker->ticker }}</a></td>
+                    <td>
+                        {{ $activo->denominacion }}
+                        @if($activo->calls->count())
+                            <a class="btn btn-sm btn-info" href="{{ route('opciones.activo', ['activo' => $activo]) }}">Calls</a>
+                            <span class="pull-right-container">
+                                <small class="label pull-right bg-yellow">Calls</small>
+                            </span>
+                        @endif
+                    </td>
                     <td align="right">{{ number_format($activo->cantidad, 0, ',', '.') }}</td>
                     <td align="right">{{ number_format($activo->costoDolares, 0, ',', '.') }}</td>
                     <td align="right">{{ number_format($activo->valorActualDolares, 0, ',', '.') }}</td>

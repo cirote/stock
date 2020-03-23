@@ -110,7 +110,7 @@ class DatosController extends Controller
 
 	private function putPrecio($ticker, $pesos, $dolares, $dato): Precio
 	{
-		return $ticker->activo->precios()->create([
+		return $ticker->activo->precio()->updateOrCreate([
 			'ticker_id'		 => $ticker->id, 
 			'mercado_id'	 => 1, 
 			'moneda_id'		 => 2, 
@@ -159,7 +159,26 @@ class DatosController extends Controller
 
 	public function store_opciones(Request $request)
 	{
+		$dolar = Dolar::orderByDesc('updated_at')->first();
 
+		foreach($request->input('Datos') as $dato)
+		{
+			if ($ticker = Ticker::byName($dato['ticker']))
+			{
+				$precio_pesos = $this->limpiar($dato['ultimo_precio']);
+
+				$precio_dolares = $precio_pesos / $dolar->mep_promedio;
+
+				$this->putPrecio(
+					$ticker, 
+					$precio_pesos, 
+					$precio_dolares, 
+					$dato
+				);
+			}
+		}
+
+	    return $this->todoOk();
 	}
 
 	private function todoOk()

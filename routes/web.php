@@ -7,6 +7,9 @@ Route::get('/acciones', 'AccionesController@index')->name('acciones.index');
 
 Route::get('/bonos', 'BonosController@index')->name('bonos.index');
 
+Route::get('/opciones', 'OpcionesController@index')->name('opciones.index');
+Route::get('/opciones/{activo}', 'OpcionesController@activo')->name('opciones.activo');
+
 Route::get('/activos', 'StockController@index')->name('activo.index');
 Route::get('/activos/{broker}', 'StockController@broker')->name('activo.broker.index');
 Route::get('/activos/anteriores', 'StockController@anteriores')->name('activo.anteriores');

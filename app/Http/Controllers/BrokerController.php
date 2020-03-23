@@ -9,7 +9,7 @@ class BrokerController extends Controller
 	public function index()
     {
         return view('broker.index')
-            ->withBrokers(Broker::all());
+            ->withBrokers(Broker::with('operaciones')->get());
     }
 
 	public function aportes(Broker $broker)

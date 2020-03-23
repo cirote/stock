@@ -13,6 +13,11 @@ class CreateActivosTable extends Migration
             $table->string('denominacion')->index();
             $table->string('clase')->nullable();
             $table->string('type')->nullable();
+
+            $table->integer('principal_id')->nullable()->default(null)->refers('id')->on('activos');
+            $table->double('strike')->nullable()->default(null);
+            $table->date('vencimiento')->nullable()->default(null);
+
             $table->timestamps();
         });
     }

@@ -16,7 +16,9 @@ class Activo extends Model
 {
     use HasChildren;
 
-    protected $fillable = ['type', 'denominacion', 'clase'];
+    protected $guarded = [];
+
+    protected $dates = ['vencimiento', 'created_at', 'updated_at'];
 
     static public function byName($name)
     {
@@ -25,7 +27,7 @@ class Activo extends Model
 
     static public function conStock()
     {
-        return static::orderBy('denominacion')->get()->filter(function ($value, $key) 
+        return static::orderBy('denominacion')->with('operaciones', 'precio', 'ticker', 'calls')->get()->filter(function ($value, $key) 
         {
             return $value->cantidad;
         });
@@ -33,7 +35,7 @@ class Activo extends Model
 
     static public function sinStock()
     {
-        return static::orderBy('denominacion')->get()->filter(function ($value, $key) 
+        return static::orderBy('denominacion')->with('operaciones', 'precio', 'ticker')->get()->filter(function ($value, $key) 
         {
             return !$value->cantidad;
         });
@@ -52,6 +54,11 @@ class Activo extends Model
         return null;
     }
 
+    public function ticker()
+    {
+        return $this->hasOne(Ticker::class, 'activo_id');
+    }
+
     public function tickers()
     {
         return $this->hasMany(Ticker::class, 'activo_id');
@@ -64,11 +71,6 @@ class Activo extends Model
         ]);
 
         return $this;
-    }
-
-    public function getTickerAttribute()
-    {
-        return $this->tickers()->first()->ticker;
     }
 
     /*
@@ -168,28 +170,19 @@ class Activo extends Model
         return $this->costo_de_los_activos;
     }
 
-    public function precios()
+    public function precio()
     {
-        return $this->hasMany(Precio::class, 'activo_id');
-    }
-
-    public function getPrecioAttribute()
-    {
-        return $this->precios()->orderByDesc('updated_at')->first();
+        return $this->hasOne(Precio::class, 'activo_id');
     }
 
     public function getPrecioActualPesosAttribute()
     {
-        return $this->precios()->count()
-            ? $this->precio->precio_pesos
-            : 0;
+        return $this->precio->precio_pesos ?? 0;
     }
 
     public function getPrecioActualDolaresAttribute()
     {
-        return $this->precios()->count()
-            ? $this->precio->precio_dolares
-            : 0;
+        return $this->precio->precio_dolares ?? 0;
     }
 
     public function getValorActualDolaresAttribute()
@@ -199,6 +192,12 @@ class Activo extends Model
 
     public function getRelacionCostoValorDolaresAttribute()
     {
-        return $this->valorActualDolares / $this->costoDolares * 100;
+        return $this->costoDolares ? $this->valorActualDolares / $this->costoDolares * 100 : 0;
     }
+
+    public function calls()
+    {
+        return $this->hasMany(Call::class, 'principal_id');
+    }
+
 }
