@@ -34,6 +34,13 @@ class AccionesTableSeeder extends Seeder
             ->agregarTicker('ERAR');
 
         Accion::create([
+            'denominacion' => 'Grupo Financiero Galicia S.A.',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('GGAL')
+            ->agregarTicker('GFG');
+
+        Accion::create([
             'denominacion' => 'Banco Supervielle S.A.',
             'clase'  => 'Acciones ordinarias'
         ])

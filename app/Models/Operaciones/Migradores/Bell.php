@@ -99,7 +99,15 @@ class Bell extends Base
 
     protected function compras()
     {
-        $this->compra_venta('CPRA', Compra::class);
+        if ($this->monedaUsadaPeso())
+        {
+            $this->compra_venta('CPRA', Compra::class);
+        }
+
+        if (! $this->monedaUsadaPeso())
+        {
+            $this->compra_venta('CPU$', Compra::class);
+        }
     }
 
     protected function ventas()

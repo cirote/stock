@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Broker;
 use App\Models\Activos\Activo;
-use App\Models\Activos\Call;
+use Cirote\Opciones\Models\Call;
 use App\Models\Activos\Moneda;
 
 class OpcionesController extends Controller

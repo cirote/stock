@@ -14,7 +14,7 @@ class operacionesBell extends GrabarOperaciones
 
     protected $broker = 'BELL';
 
-    protected $archivos = ['Pesos 2019.xlsx'];
+    protected $archivos = ['Hasta 2019.xlsx', 'Pesos 2020.xlsx', 'Dolar 2020.xlsx'];
 
     protected $migrador = Bell::class;
 }

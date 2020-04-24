@@ -37,6 +37,7 @@ abstract class Base
         $this->ventas();
         $this->ejercicioVendedor();
         $this->suscripcion();
+        // $this->renta();
     }
 
     abstract protected function fecha();
@@ -50,6 +51,8 @@ abstract class Base
     abstract protected function ventas();
 
     abstract protected function ejercicioVendedor();
+
+    // abstract protected function renta();
 
     protected function tofloat($num)
     {

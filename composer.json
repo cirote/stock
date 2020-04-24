@@ -7,10 +7,29 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/var/packages/cirote/activos"
+        },
+        {
+            "type": "path",
+            "url": "/var/packages/cirote/activos_opciones"
+        },
+        {
+            "type": "path",
+            "url": "/var/packages/cirote/activos_estrategias"
+        },
+        {
+            "type": "path",
+            "url": "/var/packages/cirote/adminlte"
+        }
+    ],
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-debugbar": "^3.2",
         "ccxt/ccxt": "^1.18",
+        "cirote/activos": "@dev",
         "fideloper/proxy": "^4.0",
         "itsgoingd/clockwork": "^3.1",
         "jeroennoten/laravel-adminlte": "1.*",

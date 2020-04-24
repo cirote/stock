@@ -12,6 +12,10 @@
                 <th>Activo</th>
                 <th>Cantidad</th>
                 <th>Inversion</th>
+                <th>Dividendos</th>
+                <th>Lanzamientos</th>
+                <th>I. Neta</th>
+                <th>Precio</th>
                 <th>Valor</th>
                 <th>Relacion</th>
             </tr>
@@ -34,6 +38,10 @@
                     </td>
                     <td align="right">{{ number_format($activo->cantidad, 0, ',', '.') }}</td>
                     <td align="right">{{ number_format($activo->costoDolares, 0, ',', '.') }}</td>
+                    <td align="right"></td>
+                    <td align="right"></td>
+                    <td align="right"></td>
+                    <td align="right">{{ number_format($activo->precioActualPesos, 2, ',', '.') }}</td>
                     <td align="right">{{ number_format($activo->valorActualDolares, 0, ',', '.') }}</td>
                     <td align="right">{{ number_format($activo->relacionCostoValorDolares, 0, ',', '.') }}</td>
                 </tr>
