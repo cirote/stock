@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use League\Csv\Reader;
+use Cirote\Activos\Models\Activo;
 
 class Historico extends Model
 {

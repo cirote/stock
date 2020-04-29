@@ -4,6 +4,7 @@ namespace App\Models\Activos;
 
 use Illuminate\Database\Eloquent\Model;
 use Cirote\Activos\Models\Activo;
+use Cirote\Activos\Models\Moneda;
 
 class Mercado extends Model
 {
