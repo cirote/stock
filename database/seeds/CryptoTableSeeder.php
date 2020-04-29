@@ -1,8 +1,7 @@
 <?php
 
-use App\Models\Activos\Crypto;
-
 use Illuminate\Database\Seeder;
+use Cirote\Activos\Models\Crypto;
 
 class CryptoTableSeeder extends Seeder
 {

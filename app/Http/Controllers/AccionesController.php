@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Broker;
-use App\Models\Activos\Accion;
-use App\Models\Activos\Moneda;
+use Cirote\Activos\Models\Accion;
+use Cirote\Activos\Models\Moneda;
 
 class AccionesController extends Controller
 {

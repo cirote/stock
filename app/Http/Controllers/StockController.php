@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Broker;
-use App\Models\Activos\Activo;
-use App\Models\Activos\Moneda;
+use Cirote\Activos\Models\Activo;
+use Cirote\Activos\Models\Moneda;
 
 class StockController extends Controller
 {

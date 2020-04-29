@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Broker;
-use App\Models\Activos\Bono;
-use App\Models\Activos\Moneda;
+use Cirote\Activos\Models\Bono;
+use Cirote\Activos\Models\Moneda;
 
 class BonosController extends Controller
 {

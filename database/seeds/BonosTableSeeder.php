@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Activos\Bono;
+use Cirote\Activos\Models\Bono;
 use Illuminate\Database\Seeder;
 
 class BonosTableSeeder extends Seeder
@@ -14,6 +14,14 @@ class BonosTableSeeder extends Seeder
             ->agregarTicker('BPLD')
             ->agregarTicker('BPLDD')
             ->agregarTicker('BPLDC');
+
+        Bono::create([
+            'denominacion' => 'Bono de la Nación Argentina en dólares 8,00% vto. 2020',
+            'clase'  => 'Bono'
+        ])
+            ->agregarTicker('AO20')
+            ->agregarTicker('AO20D')
+            ->agregarTicker('AO20C');
 
         Bono::create([
             'denominacion' => 'Bono de la Nación Argentina en dólares 8,75% vto. 2024',

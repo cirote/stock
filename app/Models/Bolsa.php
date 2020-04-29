@@ -3,6 +3,7 @@
 namespace App\Models\Activos;
 
 use Illuminate\Database\Eloquent\Model;
+use Cirote\Activos\Models\Activo;
 
 class Bolsa extends Model
 {

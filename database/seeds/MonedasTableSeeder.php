@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Activos\Moneda;
+use Cirote\Activos\Models\Moneda;
 use Illuminate\Database\Seeder;
 
 class MonedasTableSeeder extends Seeder
