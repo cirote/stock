@@ -20,6 +20,12 @@ class AccionesTableSeeder extends Seeder
             ->agregarTicker('SAN');
 
         Accion::create([
+            'denominacion' => 'ITAU Unibanco S.A.',
+            'clase'  => 'Acciones ordinarias'
+        ])
+            ->agregarTicker('ITUB');
+
+        Accion::create([
             'denominacion' => 'Petrobras S.A.',
             'clase'  => 'Acciones ordinarias'
         ])

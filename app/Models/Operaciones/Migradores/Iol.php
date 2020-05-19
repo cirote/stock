@@ -2,8 +2,8 @@
 
 namespace App\Models\Operaciones\Migradores;
 
-use App\Models\Activos\Activo;
-use App\Models\Activos\Moneda;
+use Cirote\Activos\Models\Activo;
+use Cirote\Activos\Models\Moneda;
 use App\Models\Operaciones\Compra;
 use App\Models\Operaciones\Retiro;
 use App\Models\Operaciones\Deposito;

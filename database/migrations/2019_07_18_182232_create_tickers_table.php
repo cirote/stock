@@ -16,7 +16,7 @@ class CreateTickersTable extends Migration
         Schema::create('tickers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('activo_id')->index()->references('id')->on('activos');
-            $table->string('ticker', 10)->unique()->index();
+            $table->string('ticker', 20)->unique()->index();
             $table->timestamps();
         });
     }
