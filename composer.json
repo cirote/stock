@@ -14,6 +14,10 @@
         },
         {
             "type": "path",
+            "url": "/var/packages/cirote/activos_movimientos"
+        },
+        {
+            "type": "path",
             "url": "/var/packages/cirote/activos_opciones"
         },
         {

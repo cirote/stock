@@ -1,0 +1,33 @@
+{
+    "name": "cirote/adminlte",
+    "description": "Plantilla de Adminlte",
+    "type": "library",
+    "license": "",
+    "authors": [
+        {
+            "name": "Esteban Rogel",
+            "email": "estebanrogel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cirote\\Layouts\\": "src/"
+        }
+    },
+    "require": {
+
+    },
+    "require-dev": {
+
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cirote\\Layouts\\ServiceProvider\\ServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    }
+}

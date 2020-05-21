@@ -7,9 +7,12 @@ use App\Models\Activos\Activo;
 use App\Models\Operaciones\Operacion;
 use App\Models\Operaciones\Deposito;
 use App\Models\Operaciones\Retiro;
+use Cirote\Activos\Config\Config;
 
 class Broker extends Model
 {
+    protected $table = Config::PREFIJO . Config::BROKERS;
+
     static public function byName($name)
     {
         return static::where('nombre', $name)->first();

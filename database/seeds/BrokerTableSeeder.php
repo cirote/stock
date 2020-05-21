@@ -27,5 +27,9 @@ class BrokerTableSeeder extends Seeder
             'sigla' => 'AF'
         ]);
 
+        Broker::create([
+            'nombre' => 'Okex',
+            'sigla' => 'OKEX'
+        ]);
     }
 }

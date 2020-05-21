@@ -1,0 +1,33 @@
+{
+    "name": "cirote/activos_opciones",
+    "description": "Sistema de activos",
+    "type": "library",
+    "license": "",
+    "authors": [
+        {
+            "name": "Esteban Rogel",
+            "email": "estebanrogel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cirote\\Opciones\\": "src/"
+        }
+    },
+    "require": {
+
+    },
+    "require-dev": {
+
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cirote\\Opciones\\ServiceProvider\\ServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    }
+}
