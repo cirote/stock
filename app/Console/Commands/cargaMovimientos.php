@@ -7,11 +7,11 @@ use Cirote\Movimientos\Actions\MigratosDatosOriginales\CopiarDatosDeBellAlFormat
 use Cirote\Movimientos\Actions\MigratosDatosOriginales\CopiarDatosDeIolAlFormatoComunAction as Iol;
 use Cirote\Movimientos\Actions\MigratosDatosOriginales\CopiarDatosDePpiAlFormatoComunAction as Ppi;
 
-class operacionesIOL extends Command
+class cargaMovimientos extends Command
 {
-    protected $signature = 'populate:prueba';
+    protected $signature = 'populate:movimientos';
 
-    protected $description = 'Carga lista de operaciones de IOL';
+    protected $description = 'Migración de las operaciones originales';
 
     public function handle()
     {

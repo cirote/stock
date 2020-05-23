@@ -1,2 +1,0 @@
-@extends('activos::layouts.master')
-
