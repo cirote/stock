@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Broker;
+use Cirote\Activos\Models\Broker;
 
 class BrokerController extends Controller
 {
