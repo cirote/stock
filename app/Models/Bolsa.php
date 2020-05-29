@@ -4,9 +4,12 @@ namespace App\Models\Activos;
 
 use Illuminate\Database\Eloquent\Model;
 use Cirote\Activos\Models\Activo;
+use Cirote\Activos\Config\Config;
 
 class Bolsa extends Model
 {
+    protected $table = Config::PREFIJO . Config::BOLSAS;
+
     static public function byName($name)
     {
         return static::where('nombre', $name)->first();

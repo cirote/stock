@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Cirote\Movimientos\Actions\ImputarMovimientosOriginalesEnPosiciones as Imputar;
+use Cirote\Movimientos\Actions\ImputarMovimientosOriginalesEnPosicionesAction as Imputar;
 
 class imputarMovimientos extends Command
 {

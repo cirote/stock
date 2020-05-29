@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Broker;
+use Cirote\Activos\Models\Broker;
 use Illuminate\Database\Seeder;
 
 class BrokerTableSeeder extends Seeder

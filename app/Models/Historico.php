@@ -7,6 +7,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use League\Csv\Reader;
 use Cirote\Activos\Models\Activo;
+use Cirote\Activos\Config\Config;
 
 class Historico extends Model
 {
