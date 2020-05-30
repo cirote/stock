@@ -66,6 +66,7 @@ class BonosTableSeeder extends Seeder
             'denominacion' => 'Cupones PBI U$S Ley Argentina',
             'clase'  => 'Bono'
         ])
-            ->agregarTicker('TVPA');
+            ->agregarTicker('TVPA', 'Bono', 1, 1)
+            ->agregarTicker('TVPA.BA', 'Bono', 100, 0, 1, 0);
     }
 }

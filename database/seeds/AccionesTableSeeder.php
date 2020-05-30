@@ -11,7 +11,8 @@ class AccionesTableSeeder extends Seeder
             'denominacion' => 'Carboclor S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
-            ->agregarTicker('CARC');
+            ->agregarTicker('CARC.BA', 'Acción', 1, 0, 1, 0)
+            ->agregarTicker('CARC', 'Acción', 1, 1);
 
         Accion::create([
             'denominacion' => 'Banco Santander S.A.',
@@ -36,7 +37,8 @@ class AccionesTableSeeder extends Seeder
             'denominacion' => 'Ternium Argentina S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
-            ->agregarTicker('TXAR')
+            ->agregarTicker('TXAR', 'Acción', 1, 1)
+            ->agregarTicker('TXAR.BA', 'Acción', 1, 0, 1, 0)
             ->agregarTicker('ERAR');
 
         Accion::create([
@@ -44,7 +46,7 @@ class AccionesTableSeeder extends Seeder
             'clase'  => 'Acciones ordinarias'
         ])
             ->agregarTicker('GGAL', 'ADR', 10, 1, 0, 1)
-            ->agregarTicker('GFG');
+            ->agregarTicker('GFG')
             ->agregarTicker('GFG.BA', 'Acción', 1, 0, 1, 0);
 
         Accion::create([
@@ -64,13 +66,15 @@ class AccionesTableSeeder extends Seeder
             'clase'  => 'Acciones ordinarias'
         ])
             ->agregarTicker('PGR')
+            ->agregarTicker('PGR.BA', 'Acción', 1, 0, 1, 0)
             ->agregarTicker('AEN');
 
         Accion::create([
             'denominacion' => 'Yacimientos Petroliferos Fiscales S.A.',
             'clase'  => 'Acciones ordinarias'
         ])
-            ->agregarTicker('YPF')
-            ->agregarTicker('YPFD');
+            ->agregarTicker('YPF', 'ADR', 1, 0, 0, 1)
+            ->agregarTicker('YPFD.BA', 'Acción', 1, 0, 1, 0)
+            ->agregarTicker('YPFD', 'Acción', 1, 1);
     }
 }
